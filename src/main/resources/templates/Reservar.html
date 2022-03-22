@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Proyecto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <p>LOGO</p>
+            <nav>
+                <a th:href="@{/menu}">Menu</a>
+                <a th:href="@{/Reservar}">Reservar</a>
+                <a th:href="@{/ordenar}">Ordenar Enlinea</a>
+                <a th:href="@{/Inrformacion}">Informacion</a>
+            </nav>
+        </header>
+        <div>
+            <form th:action="@{/guardarReservacion}"
+                  method="post"
+                  th:object="${reservaciones}">
+                <input type="hidden" name="idreservaciones" th:field="*{idreservaciones}"/>
+                <input type="date" name="date"><br>
+                <input type="time" name="time"><br>
+                <input type="submit" name="guardar" value="Guardar Reservacion"/>
+            </form>
+        </div>
+    </body>
+</html>

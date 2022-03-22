@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Proyecto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div th:if="${ordenesDB != null and !ordenesDB.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Cedula</th>
+                    <th>Telefono</th>
+                    <th>Tipo</th>
+                    <th>Platillos</th>
+                    <th>Notas</th>
+                    <th>Precio</th>
+                    <th>Ubicacion</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr th:each="item : ${ordenesDB}">
+                    <td th:text="${item.nombre}"></td>
+                    <td th:text="${item.apellidos}"></td>
+                    <td th:text="${item.cedula}"></td>
+                    <td th:text="${item.telefono}"></td>
+                    <td th:text="${item.tipo}"></td>
+                    <td th:text="${item.platillos}"></td>
+                    <td th:text="${item.notas}"></td>
+                    <td th:text="${item.precio}"></td>
+                    <td th:text="${item.ubicacion}"></td>
+                    <td th:text="${item.platillos}"></td>
+                    <td><a th:href="@{/ModificarOrden/} + ${item.idorden}">Modificar</a></td>
+                    <td><a th:href="@{/EliminarOrden/} + ${item.idorden}">Eliminar</a></td>
+            </table>
+        </div>
+    </body>
+</html>

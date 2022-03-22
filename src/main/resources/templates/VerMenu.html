@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Proyecto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>Menu</p>
+        <div th:if="${menuDB != null and !menuDB.empty}">
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Platillo</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+            </tr>
+            <tr th:each="item : ${menuDB}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.platillo}"></td>
+                <td th:text="${item.descripcion}"></td>
+                <td th:text="${item.precio}"></td>
+            </tr>
+        </table>
+            <br>
+        </div>
+    </body>
+</html>

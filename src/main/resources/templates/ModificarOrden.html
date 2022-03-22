@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Proyecto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>Debido a que se trata de una orden los datos que se pueden editar son limitados.</p>
+        <p>Solo puede agregar mas comida, cambiar las notas o cambiar de expres a recoger en restaurante y viceversa</p>
+        
+        <form th:action="@{/guardarOrden}"
+              method="post"
+              th:object="${orden}">
+            <label>Expres</label><input type="radio" name="tipo"><br>
+            <label>Recoger en Restaurante</label><input type="radio" name="tipo"><br>
+            <input type="text" name="platillos" placeholder="Platillos"><br>
+            <input type="text" name="notas" placeholder="Notas"><br>
+            <input type="submit" name="guardar" value="Guardar Orden"/>
+        </form>
+        <p>PRECIO</p>
+    </body>
+</html>
