@@ -27,11 +27,11 @@ public class IndexController {
         return "index";
     }
     @GetMapping("/Reservar")
-    public String reservar(Reservaciones reservaciones){
+    public String Reservar(Reservaciones reservaciones){
         return "Reservar";
     }
     @PostMapping("/guardarReservacion")
-    public String gusrdarReservacion(Reservaciones reservaciones){
+    public String guardarReservacion(Reservaciones reservaciones){
         reservacionesService.save(reservaciones);
         return "redirect:/";
     }
@@ -49,8 +49,8 @@ public class IndexController {
     
     
     @GetMapping("/Ordenar")
-    public String ordenar(Orden orden){
-        return "/Orden";
+    public String Ordenar(Orden orden){
+        return "/Ordenar";
     }
     @PostMapping("/guardarOrden")
     public String guardarOrden(Orden orden){
@@ -68,9 +68,9 @@ public class IndexController {
         ordenService.delete(orden);
         return "redirect:/";
     }
-    
-    @GetMapping("/Informacion")
-    public String info(){
-        return "/Informacion";
-    }
+//    
+//    @GetMapping("/Informacion")
+//    public String info(){
+//        return "/Informacion";
+//    }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:fragment="header" id="main-navigation">
+            <div id="navigation" data-spy="affix" class="affix">
+                <div class="row">
+                    <div>
+                        <nav class="navbar nav-default">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" th:href="@{/}">
+                                    <img th:src="@{/images/logo2.png}" alt="logo" width="300px"/>
+                                </a>
+                            </div>
+                            <ul id="nav navbar-nav" class="texto">
+                                <li class="espacio">
+                                    <a th:href="@{/VerMenu}" style="color:white; font-family: 'Felix-Titling'">MENU</a>
+                                </li>
+                                <li class="espacio">
+                                    <a th:href="@{/Reservar}" style="color:white; font-family: 'Felix-Titling'">RESERVAR</a>
+                                </li>
+                                <li class="espacio">
+                                    <a th:href="@{/VerReservaciones}" style="color:white; font-family: 'Felix-Titling'">MIS RESERVACIONES</a>
+                                </li>
+                                <li class="espacio">
+                                    <a th:href="@{/Ordenar}" style="color:white; font-family: 'Felix-Titling'">ORDENAR ENLINEA</a>
+                                </li>
+                                <li class="espacio">
+                                    <a th:href="@{/VerOrdenes}" style="color:white; font-family: 'Felix-Titling'">MIS ORDENES</a>
+                                </li>
+                                <li class="espacio">
+                                    <a th:href="@{/Informacion}" style="color:white; font-family: 'Felix-Titling'">INFORMACION</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+#main-navigation{
+    position:fixed;
+    background: transparent;
+    margin-top: 0;
+}
+#navigation.affix{
+    postion: fixed;
+    background-color: rgba(184, 41, 39, 0.60);
+}
+#main-navigation,#navigation.affix{
+    top:0;
+    width: 100%;
+    z-index: 999;
+}
+.nav-default{
+    background-color: transparent;
+    border-color: transparent;
+    justify-content: space-between;
+    text-decoration: none;
+    color: transparent;
+    display: flex;
+}
+.navbar , .navbar-default{
+    border: none;
+    font-size: 24px;
+    text-decoration: none;
+}
+navbar{
+    margin-bottom: 0;
+    min-height: auto;
+}
+
+
+navbar-brand{
+    height: auto;
+}
+.logo-center{
+    display: inline-block;
+    float: none;
+    left:50%;
+    position:absolute;
+    top:50%;
+    max-width: 140px;
+    text-align: center;
+}
+.logo-center > img{
+    display:inline-block;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-size: 14px;
+  padding:10px 10px;
+  border-radius:30px;
+  font-family: 'Felix-Titling';
+  line-height:inherit;
+  letter-spacing:0.5px;
+  float:none !important;
+  text-align:left;
+}
+.texto{
+    padding:0px 5px 0px 300px;
+    display:flex;
+}
+.espacio{
+    padding: 0px 20px 0px 20px;
+}
+
+
+#main-navigation .navbar-toggle{
+    top: 10px;
+}
+#navigation.affix .navbar-toggle{
+    top:5px;
+}
+navbar-toggle{
+    background: transparent !important;
+    border: medium none;
+    margin-right: 0;
+    margin-top: 15px;
+}
+.affix .navbar-toggle{
+    margin-top: 10px;
+}
+
+
+.zerogrid{ width:100%; position: relative;}
+.zerogrid:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+.zerogrid .f-right{float: right!important;}
+.zerogrid .f-left{float: left!important;}
+
+.zerogrid .row{}
+.zerogrid .row:before,.row:after { content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.zerogrid .row:after{clear: both; }
+.zerogrid .row{zoom: 1;}
+
+
+#index{
+    position: static;
+    height: 100%; 
+    width:100%;
+    background-image: url(https://cdn.pixabay.com/photo/2015/09/14/11/43/restaurant-939434_1280.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+.Reservar{
+    position: static;
+    height: 100%;
+    width:100%;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f7/Abu_Nawas_Beach_restaurant_-_Flickr_-_Al_Jazeera_English_%281%29.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+.formulario{
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left:35%;
+    padding: 30px 30px 30px 30px;
+    background: transparent;
+    height: 411px;
+}
+.formulario.affix{
+    color:white;
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.73);
+}
+.iden{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left:100%;
+    padding: 30px 30px 30px 30px;
+    background: transparent;
+    height: 411px;
+}
+.iden.affix{
+    color:white;
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.73);
+}
+.bot{
+    position:absolute;
+    left:64%;
+}
