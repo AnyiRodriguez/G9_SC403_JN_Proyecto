@@ -35,6 +35,10 @@ public class IndexController {
         reservacionesService.save(reservaciones);
         return "redirect:/";
     }
+    @GetMapping("/VerReservaciones")
+    public String verReservaciones(){
+        return "/VerReservaciones";
+    }
     @GetMapping("/ModificarReservacion/{idreservaciones}")
     public String modificarReservacion(Reservaciones reservaciones, Model model){
         var respuesta = reservacionesService.getReservacion(reservaciones);
@@ -57,6 +61,10 @@ public class IndexController {
         ordenService.save(orden);
         return "redirect:/";
     }
+    @GetMapping("/VerOrdenes")
+    public String verOrdenes(){
+        return "/VerOrdenes";
+    }
     @GetMapping("/ModificarOrden/{idorden}")
     public String modificarOrden(Orden orden, Model model){
         var respuesta = ordenService.getOrden(orden);
@@ -68,9 +76,10 @@ public class IndexController {
         ordenService.delete(orden);
         return "redirect:/";
     }
-//    
-//    @GetMapping("/Informacion")
-//    public String info(){
-//        return "/Informacion";
-//    }
+    
+    
+    @GetMapping("/VerMenu")
+    public String verMenu(){
+        return "/VerMenu";
+    }
 }

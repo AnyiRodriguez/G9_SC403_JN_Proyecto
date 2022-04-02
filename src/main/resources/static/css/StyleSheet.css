@@ -111,6 +111,14 @@ navbar-toggle{
     background-repeat:no-repeat;
     background-size: 100%;
 }
+.Ordenar{
+    position: static;
+    height: 100%;
+    width:100%;
+    background-image: url(https://cdn.pixabay.com/photo/2020/10/13/09/25/highway-5651284_1280.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
 .formulario{
     position: absolute;
     text-align: center;
@@ -142,4 +150,48 @@ navbar-toggle{
 .bot{
     position:absolute;
     left:64%;
+}
+
+.sombra{
+    position: absolute;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.40);
+    top: 133%;
+    width:100%;
+}
+.foot.affix{
+    background-color: rgba(184, 41, 39, 1);
+}
+.foot{
+    position: absolute;
+    height: 200px;
+    top: 133%;
+    width:100%;
+}
+body{
+    overflow: scroll;
+}
+.letr{
+    color:white;
+    font-family: 'Felix-Titling';
+}
+#foottext{
+    width:70%;
+    text-align: right;
+}
+#linea{
+    position:relative;
+    left:73%;
+    bottom:85%;
+    background-color: white;
+    height:90%;
+    padding: 80px 3px 3px 3px;
+    width:3px;
+}
+.icons{
+    position:relative;
+    left:76%;
+    bottom: 160%;
+    color: white;
+    font-size:70px;
 }
