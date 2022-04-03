@@ -14,28 +14,30 @@
         <div class="formulario affix">
             <form th:action="@{/guardarReservacion}"
                   method="post"
-                  th:object="${reservaciones}">
-                <input type="hidden" name="idreservaciones" th:field="*{idreservaciones}"/>
-                <label><Strong> Fecha:</Strong></label> <input type="date" name="date"><br><br>
-                <label><Strong>Hora:</Strong></label> <input type="time" name="time"><br><br>
+                  th:object="${reservacion}">
+                <input type="hidden" name="idreservacion" th:field="*{idreservacion}"/>
+                <label><Strong> Fecha:</Strong></label> <input type="date" name="dia" th:field="*{dia}"><br><br>
+                <label><Strong>Hora:</Strong></label> <input type="time" name="hora" th:field="*{hora}"><br><br>
                 <label><Strong>Cantidad de personas:</Strong></label><input type="range" name="cantpersonas" min="2" max="20" oninput="this.nextElementSibling.value = this.value">
                 <output>10</output><br><br>
                 <label><Strong>Platillos</Strong></label> 
                 <p style="font-size: 14px">Ingrese el ID de los platillos</p>
-                <input type="text" name="platillos" placeholder="Opcional"><br><br>
+                <input type="text" name="platillos" placeholder="Opcional" th:field="*{platillos}"><br><br>
                 <div class="iden affix">
                     <p style="font-size: 20px">Identificacion</p>
-                    <label><Strong>Nombre:</Strong></label> <input type="text" name="nombre"><br><br>
-                    <label><Strong>Apellidos:</Strong></label> <input type="text" name="nombre"><br><br>
-                    <label><Strong>Cedula:</Strong></label> <input type="text" name="nombre"><br><br>
+                    <label><Strong>Nombre:</Strong></label> <input type="text" name="nombre" th:field="*{nombre}"><br><br>
+                    <label><Strong>Apellidos:</Strong></label> <input type="text" name="apellido" th:field="*{apellidos}"><br><br>
+                    <label><Strong>Cedula:</Strong></label> <input type="text" name="cedula" th:field="*{cedula}"><br><br>
+                    
                 </div>
                 <div class="bot">
-                    <input type="submit" name="guardar" value="Guardar Reservacion"/>
+                    <p style="font-size: 20px">Extra</p>
+                    <label><Strong>Notas:</Strong></label> <input type="text" name="notas" placeholder="Opcional" style="width:450px" th:field="*{notas}"><br><br>
+                    <input type="submit" name="Guardar" value="Guardar Reservacion"/>
                 </div>
             </form>
         </div>
         
         <footer th:replace="layout/plantilla :: informacion"></footer>
-        <div class="sombra"></div>
     </body>
 </html>

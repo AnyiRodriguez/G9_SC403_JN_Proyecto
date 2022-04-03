@@ -9,39 +9,37 @@
         <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
         <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
     </head>
-    <body class="Ordenar">
+    <body class="Reservar">
         <header th:replace="layout/plantilla :: header"></header>
         <div class="ver affix">
-            <div th:if="${ordenes != null and !ordenes.empty}">
+            <div th:if="${reservaciones != null and !reservaciones.empty}">
                 <table border="1">
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Cedula</th>
-                        <th>Telefono</th>
-                        <th>Tipo</th>
+                        <th>Dia</th>
+                        <th>Hora</th>
+                        <th>Cantidad de Personas</th>
                         <th>Platillos</th>
                         <th>Notas</th>
-                        <th>Precio</th>
-                        <th>Ubicacion</th>
                         <th>Modificar</th>
                         <th>Eliminar</th>
                     </tr>
-                    <tr th:each="item : ${ordenes}">
-                        <td th:text="${item.nombre}"></td>
-                        <td th:text="${item.apellidos}"></td>
-                        <td th:text="${item.cedula}"></td>
-                        <td th:text="${item.telefono}"></td>
-                        <td th:text="${item.tipo}"></td>
+                    <tr th:each="item : ${reservaciones}">
+                        <td th:text="${item.dia}"></td>
+                        <td th:text="${item.hora}"></td>
+                        <td th:text="${item.cantpersonas}"></td>
                         <td th:text="${item.platillos}"></td>
                         <td th:text="${item.notas}"></td>
-                        <td th:text="${item.precio}"></td>
-                        <td th:text="${item.ubicacion}"></td>
-                        <td><a th:href="@{/ModificarOrden/} + ${item.idorden}">Modificar</a></td>
-                        <td><a th:href="@{/EliminarOrden/} + ${item.idorden}">Eliminar</a></td>
+                        <td><a th:href="@{/ModificarReservacion/} + ${item.idreservacion}" style="color:#a00000;">Modificar</a></td>
+                        <td><a th:href="@{/EliminarReservacion/} + ${item.idreservacion}" style="color:#a00000;">Eliminar</a></td>
                 </table>
             </div>
         </div>
-        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
+        <div th:if="${reservaciones == null}">
+            <h1>AAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+        </div>
+        <div th:if="${reservaciones == isEmpty}">
+            <h1>BBBBBBBBBBBBBBBBBBBBBBBBB</h1>
+        </div>
+        <footer th:replace="layout/plantilla :: informacion"></footer>
     </body>
 </html>

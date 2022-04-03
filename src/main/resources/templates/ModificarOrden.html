@@ -9,21 +9,31 @@
         <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
         <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body class="Ordenar">
+        <header th:replace="layout/plantilla :: header"></header>
+        <div id="infomodi">
         <p>Debido a que se trata de una orden los datos que se pueden editar son limitados.</p>
         <p>Solo puede agregar mas comida, cambiar las notas o cambiar de expres a recoger en restaurante y viceversa</p>
-        
-        <form th:action="@{/guardarOrden}"
-              method="post"
-              th:object="${orden}">
-            <label>Expres</label><input type="radio" name="tipo"><br>
-            <label>Recoger en Restaurante</label><input type="radio" name="tipo"><br>
-            <input type="text" name="platillos" placeholder="Platillos"><br>
-            <input type="text" name="notas" placeholder="Notas"><br>
-            <input type="submit" name="guardar" value="Guardar Orden"/>
-        </form>
+        </div>
+        <div class="formulario affix">
+            <form th:action="@{/guardarOrden}"
+                  method="post"
+                  th:object="${orden}">
+                <input type="hidden" name="idorden" th:field="*{idorden}"/>
+                <input type="text" name="nombre" readonly="true" th:field="*{nombre}"/>
+                <input type="text" name="apellidos" th:field="*{apellidos}" readonly="true"/>
+                <input type="text" name="cedula" th:field="*{cedula}" readonly="true"/>
+                <input type="tel" name="telefono" th:field="*{telefono}" readonly="true"/><br>
+                <label>Expres</label><input type="radio" name="tipo"><br>
+                <label>Recoger en Restaurante</label><input type="radio" name="tipo"><br>
+                <input type="text" name="platillos" th:field="*{platillos}" readonly="true"/>
+                <input type="text" name="platillos" placeholder="Platillos"><br>
+                <input type="text" name="notas" placeholder="Notas"><br>
+                <input type="text" name="ubicacion" placeholder="En caso de seleccionar expres especifique la direccion de entrega" th:field="*{ubicacion}"><br>
+                <input type="submit" name="guardar" value="Guardar Orden"/>
+            </form>
+        </div>
         <p>PRECIO</p>
-        <footer th:replace="layout/plantilla :: informacion"></footer>
-        <div class="sombra"></div>
+        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
     </body>
 </html>

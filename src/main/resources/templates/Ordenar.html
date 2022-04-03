@@ -11,22 +11,25 @@
     </head>
     <body class="Ordenar">
         <header th:replace="layout/plantilla :: header"></header>
-        <form th:action="@{/guardarOrden}"
-              method="post"
-              th:object="${orden}">
-            <input type="text" name="nombre" placeholder="Nombre"><br>
-            <input type="text" name="apellidos" placeholder="Apellidos"><br>
-            <input type="text" name="cedula" placeholder="Cedula"><br>
-            <input type="tel" name="telefono" placeholder="Telefono"><br>
-            <label>Expres</label><input type="radio" name="tipo"><br>
-            <label>Recoger en Restaurante</label><input type="radio" name="tipo"><br>
-            <input type="text" name="platillos" placeholder="Platillos"><br>
-            <input type="text" name="notas" placeholder="Notas"><br>
-            <input type="text" name="ubicacion" placeholder="En caso de seleccionar expres especifique la direccion de entrega"><br>
-            <input type="submit" name="guardar" value="Guardar Orden"/>
-        </form>
-        <p>PRECIO</p>
-        <footer th:replace="layout/plantilla :: informacion"></footer>
-        <div class="sombra"></div>
+        <div class="formulario affix">
+            <form th:action="@{/guardarOrden}"
+                  method="post"
+                  th:object="${orden}">
+                <input type="hidden" name="idorden" th:field="*{idorden}"/>
+                <input type="text" name="nombre" placeholder="Nombre" th:field="*{nombre}"><br>
+                <input type="text" name="apellidos" placeholder="Apellidos" th:field="*{apellidos}"><br>
+                <input type="text" name="cedula" placeholder="Cedula" th:field="*{cedula}"><br>
+                <input type="tel" name="telefono" placeholder="Telefono" th:field="*{telefono}"><br>
+                <label>Expres</label><input type="radio" name="tipo"><br>
+                <label>Recoger en Restaurante</label><input type="radio" name="tipo"><br>
+                <input type="text" name="platillos" placeholder="Platillos" th:field="*{platillos}"><br>
+                <input type="text" name="notas" placeholder="Notas" th:field="*{notas}"><br>
+                <input type="text" name="precio" th:field="*{precio}"><br>
+                <input type="text" name="ubicacion" placeholder="En caso de seleccionar expres especifique la direccion de entrega" th:field="*{ubicacion}"><br>
+                <input type="submit" name="guardar" value="Guardar Orden"/>
+            </form>
+            <p>PRECIO</p>
+        </div>
+        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
     </body>
 </html>

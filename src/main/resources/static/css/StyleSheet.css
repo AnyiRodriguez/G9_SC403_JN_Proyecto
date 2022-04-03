@@ -115,9 +115,15 @@ navbar-toggle{
     position: static;
     height: 100%;
     width:100%;
-    background-image: url(https://cdn.pixabay.com/photo/2020/10/13/09/25/highway-5651284_1280.jpg);
+    background-image: url(https://destination-images.ebooking.com/uploads/article/piazza-del-duomo-en-italia1.jpg);
     background-repeat:no-repeat;
     background-size: 100%;
+}
+#infomodi{
+    position: absolute;
+    text-align: center;
+    top:20%;
+    left:30%;
 }
 .formulario{
     position: absolute;
@@ -126,7 +132,7 @@ navbar-toggle{
     left:35%;
     padding: 30px 30px 30px 30px;
     background: transparent;
-    height: 411px;
+    height: 530px;
 }
 .formulario.affix{
     color:white;
@@ -140,7 +146,7 @@ navbar-toggle{
     left:100%;
     padding: 30px 30px 30px 30px;
     background: transparent;
-    height: 411px;
+    height: 530px;
 }
 .iden.affix{
     color:white;
@@ -149,27 +155,20 @@ navbar-toggle{
 }
 .bot{
     position:absolute;
-    left:64%;
+    left:15%;
 }
 
-.sombra{
-    position: absolute;
-    height: 200px;
-    background-color: rgba(0, 0, 0, 0.40);
-    top: 133%;
-    width:100%;
-}
 .foot.affix{
-    background-color: rgba(184, 41, 39, 1);
+    background-color: rgba(100, 22, 21, 1);
 }
 .foot{
     position: absolute;
     height: 200px;
-    top: 133%;
+    top:133%;
     width:100%;
 }
 body{
-    overflow: scroll;
+    overflow: auto;
 }
 .letr{
     color:white;
@@ -194,4 +193,36 @@ body{
     bottom: 160%;
     color: white;
     font-size:70px;
+}
+#backMenu{
+    background-color: rgba(0, 0, 0, 0.90);
+}
+#orden_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 100%;
+    width:100%;
+}
+#menu_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 440%;
+    width:100%;
+}
+
+.ver{
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left:33%;
+    padding: 30px 30px 30px 30px;
+    background: transparent;
+    height: auto;
+}
+.ver.affix{
+    color:white;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.73);
 }

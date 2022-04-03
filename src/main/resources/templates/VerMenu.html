@@ -9,26 +9,16 @@
         <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
         <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <p>Menu</p>
-        <div th:if="${menuDB != null and !menuDB.empty}">
-        <table border="1">
-            <tr>
-                <th>Id</th>
-                <th>Platillo</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-            </tr>
-            <tr th:each="item : ${menuDB}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.platillo}"></td>
-                <td th:text="${item.descripcion}"></td>
-                <td th:text="${item.precio}"></td>
-            </tr>
-        </table>
-            <br>
-        </div>
-        <footer th:replace="layout/plantilla :: informacion"></footer>
-        <div class="sombra"></div>
+    <body id="backMenu">
+        <header th:replace="layout/plantilla :: header"></header>
+        <center>
+            <br><br><br><br><br><br>
+            <img src="../images/Menu1.png" alt=""/>
+            <br><br>
+            <img src="../images/Menu2.png" alt=""/>
+            <br><br>
+        </center>
+        <footer th:replace="layout/plantilla :: menu_informacion"></footer>
+        <div id="menu_sombra"></div>
     </body>
 </html>

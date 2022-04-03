@@ -1,7 +1,7 @@
 package ProyectoWebYPatrones.proyecto.controller;
 
-import ProyectoWebYPatrones.proyecto.domain.Reservaciones;
-import ProyectoWebYPatrones.proyecto.service.ReservacionesService;
+import ProyectoWebYPatrones.proyecto.domain.Reservacion;
+import ProyectoWebYPatrones.proyecto.service.ReservacionService;
 import ProyectoWebYPatrones.proyecto.service.OrdenService;
 import ProyectoWebYPatrones.proyecto.domain.Orden;
 
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 public class IndexController {
     @Autowired
-    private ReservacionesService reservacionesService;
+    private ReservacionService reservacionService;
     @Autowired
     private OrdenService ordenService;
     
@@ -27,28 +27,30 @@ public class IndexController {
         return "index";
     }
     @GetMapping("/Reservar")
-    public String Reservar(Reservaciones reservaciones){
+    public String Reservar(Reservacion reservacion){
         return "Reservar";
     }
     @PostMapping("/guardarReservacion")
-    public String guardarReservacion(Reservaciones reservaciones){
-        reservacionesService.save(reservaciones);
+    public String guardarReservacion(Reservacion reservacion){
+        reservacionService.save(reservacion);
         return "redirect:/";
     }
-    @GetMapping("/VerReservaciones")
-    public String verReservaciones(){
-        return "/VerReservaciones";
+    @GetMapping("/VerReservacion")
+    public String verReservacion(Model model){
+        var reservaciones = reservacionService.getReservaciones();
+        model.addAttribute("reservaciones", reservaciones);
+        return "/VerReservacion";
     }
-    @GetMapping("/ModificarReservacion/{idreservaciones}")
-    public String modificarReservacion(Reservaciones reservaciones, Model model){
-        var respuesta = reservacionesService.getReservacion(reservaciones);
-        model.addAttribute("reservaciones", respuesta);
+    @GetMapping("/ModificarReservacion/{idreservacion}")
+    public String modificarReservacion(Reservacion reservacion, Model model){
+        var respuesta = reservacionService.getReservacion(reservacion);
+        model.addAttribute("reservacion", respuesta);
         return "Reservar";
     }
-    @GetMapping("/EliminarReservacion/{idreservaciones}")
-    public String eliminarreservacon(Reservaciones reservaciones){
-        reservacionesService.delete(reservaciones);
-        return "redirect:/VerReservaciones";
+    @GetMapping("/EliminarReservacion/{idreservacion}")
+    public String eliminarreservacon(Reservacion reservacion){
+        reservacionService.delete(reservacion);
+        return "redirect:/VerReservacion";
     }
     
     
@@ -62,14 +64,16 @@ public class IndexController {
         return "redirect:/";
     }
     @GetMapping("/VerOrdenes")
-    public String verOrdenes(){
+    public String verOrdenes(Model model){
+        var ordenes = ordenService.getOrdenes();
+        model.addAttribute("ordenes", ordenes);
         return "/VerOrdenes";
     }
     @GetMapping("/ModificarOrden/{idorden}")
     public String modificarOrden(Orden orden, Model model){
         var respuesta = ordenService.getOrden(orden);
-        model.addAttribute("ordenes", respuesta);
-        return "redirect:/VerOrdenes";
+        model.addAttribute("orden", respuesta);
+        return "ModificarOrden";
     }
     @GetMapping("/EliminarOrden/{idorden}")
     public String eliminarOrden(Orden orden){

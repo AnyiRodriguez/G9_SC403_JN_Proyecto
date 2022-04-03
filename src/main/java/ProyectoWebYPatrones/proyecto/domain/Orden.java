@@ -17,15 +17,15 @@ public class Orden {
     String apellidos;
     String cedula;
     String telefono;
+    String tipo;
     String platillos;
     String notas;
     String precio;
-    String ubicaion;
-    String tipo;
+    String ubicacion;
     
     public Orden(){}
 
-    public Orden(String nombre, String apellidos, String cedula, String telefono, String platillos, String notas, String precio, String ubicaion, String tipo) {
+    public Orden(String nombre, String apellidos, String cedula, String telefono, String platillos, String notas, String precio, String ubicacion, String tipo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cedula = cedula;
@@ -33,7 +33,7 @@ public class Orden {
         this.platillos = platillos;
         this.notas = notas;
         this.precio = precio;
-        this.ubicaion = ubicaion;
+        this.ubicacion = ubicacion;
         this.tipo = tipo;
     }
     
