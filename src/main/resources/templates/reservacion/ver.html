@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://thymeleaf.org/extras/spring-security">
     <head>
         <title>Proyecto</title>
         <meta charset="UTF-8">
@@ -12,7 +13,7 @@
     <body class="Reservar">
         <header th:replace="layout/plantilla :: header"></header>
         <div class="ver affix">
-            <div th:if="${reservaciones != null and !reservaciones.empty}">
+            <div th:if="${misReservaciones != null and !misReservaciones.empty}">
                 <table border="1">
                     <tr>
                         <th>Dia</th>
@@ -23,7 +24,7 @@
                         <th>Modificar</th>
                         <th>Eliminar</th>
                     </tr>
-                    <tr th:each="item : ${reservaciones}">
+                    <tr th:each="item : ${misRreservaciones}">
                         <td th:text="${item.dia}"></td>
                         <td th:text="${item.hora}"></td>
                         <td th:text="${item.cantpersonas}"></td>

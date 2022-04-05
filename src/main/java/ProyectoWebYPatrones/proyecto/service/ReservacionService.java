@@ -8,4 +8,5 @@ public interface ReservacionService {
     public void save(Reservacion reservacion);
     public void delete(Reservacion reservacion);
     public Reservacion getReservacion(Reservacion reservacion);
+    public List<Reservacion> findByCedula(String cedula);
 }

@@ -33,7 +33,12 @@ public class OrdenServiceImpl implements OrdenService {
     @Override
     @Transactional (readOnly = true)
     public Orden getOrden(Orden orden) {
-        return ordenDao.findById(orden.getIdorden()).orElse(null);
+        return ordenDao.findById(orden.getIdOrden()).orElse(null);
+    }
+
+    @Override
+    public List<Orden> findByCedula(String cedula) {
+        return ordenDao.findByCedula(cedula);
     }
     
 }

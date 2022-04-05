@@ -7,11 +7,12 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name="reservacion")
-public class Reservacion {
+public class Reservacion implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long idreservacion;
+    @Column(name="id_Reservacion")
+    Long idReservacion;
     String dia;
     String hora;
     String cantpersonas;

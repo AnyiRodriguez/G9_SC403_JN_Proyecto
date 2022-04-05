@@ -7,11 +7,12 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name="orden")
-public class Orden {
+public class Orden implements Serializable{
     private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long idorden;
+    @Column(name="id_Orden")
+    Long idOrden;
     
     String nombre;
     String apellidos;

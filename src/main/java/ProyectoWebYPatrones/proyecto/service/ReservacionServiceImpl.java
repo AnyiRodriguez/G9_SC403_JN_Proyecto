@@ -33,7 +33,13 @@ public class ReservacionServiceImpl implements ReservacionService {
     @Override
     @Transactional (readOnly = true)
     public Reservacion getReservacion(Reservacion reservacion) {
-        return reservacionDao.findById(reservacion.getIdreservacion()).orElse(null);
+        return reservacionDao.findById(reservacion.getIdReservacion()).orElse(null);
+    }
+
+    @Override
+    public List<Reservacion> findByCedula(String cedula) {
+        var lista = (List<Reservacion>) reservacionDao.findByCedula(cedula);
+        return lista;
     }
     
 }

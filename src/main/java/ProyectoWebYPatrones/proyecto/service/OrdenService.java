@@ -8,4 +8,5 @@ public interface OrdenService {
     public void save(Orden orden);
     public void delete(Orden orden);
     public Orden getOrden(Orden orden);
+    public List<Orden> findByCedula(String cedula);
 }
