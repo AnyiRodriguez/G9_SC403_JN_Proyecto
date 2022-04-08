@@ -1,5 +1,7 @@
 package ProyectoWebYPatrones.proyecto.controller;
 
+import ProyectoWebYPatrones.proyecto.domain.Empleado;
+import ProyectoWebYPatrones.proyecto.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,7 @@ public class EmpleadosController {
     }
     @GetMapping("/empleados/ver")
     public String verEmpleado(Model model){
-        var empleadoes = empleadoService.getEmpleadoes();
+        var empleadoes = empleadoService.getEmpleados();
         model.addAttribute("empleados", empleadoes);
         return "/VerEmpleado";
     }

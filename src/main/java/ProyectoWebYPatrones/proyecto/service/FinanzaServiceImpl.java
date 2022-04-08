@@ -4,8 +4,10 @@ import ProyectoWebYPatrones.proyecto.dao.FinanzaDao;
 import ProyectoWebYPatrones.proyecto.domain.Finanza;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class FinanzaServiceImpl implements FinanzaService {
     @Autowired
     private FinanzaDao finanzaDao;

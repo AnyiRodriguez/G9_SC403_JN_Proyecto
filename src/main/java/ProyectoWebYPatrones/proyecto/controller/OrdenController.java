@@ -15,7 +15,7 @@ public class OrdenController {
     
     @GetMapping("/orden/nuevo")
     public String Ordenar(Orden orden){
-        return "/orden/modifica";
+        return "/orden/nuevo";
     }
     @PostMapping("/orden/guardar")
     public String guardarOrden(Orden orden){

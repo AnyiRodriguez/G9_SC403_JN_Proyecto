@@ -164,7 +164,7 @@ navbar-toggle{
 .foot{
     position: absolute;
     height: 200px;
-    top:133%;
+    top:130%;
     width:100%;
 }
 body{
@@ -193,6 +193,7 @@ body{
     bottom: 160%;
     color: white;
     font-size:70px;
+    width:20%;
 }
 #backMenu{
     background-color: rgba(0, 0, 0, 0.90);

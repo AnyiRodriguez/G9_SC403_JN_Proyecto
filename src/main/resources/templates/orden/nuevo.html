@@ -4,7 +4,6 @@
     <head>
         <title>Proyecto</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
@@ -13,10 +12,10 @@
     <body class="Ordenar">
         <header th:replace="layout/plantilla :: header"></header>
         <div class="formulario affix">
-            <form th:action="@{/guardarOrden}"
+            <form th:action="@{/orden/guardar}"
                   method="post"
                   th:object="${orden}">
-                <input type="hidden" name="idorden" th:field="*{idorden}"/>
+                <input type="hidden" name="idOrden" th:field="*{idOrden}"/>
                 <input type="text" name="nombre" placeholder="Nombre" th:field="*{nombre}"><br>
                 <input type="text" name="apellidos" placeholder="Apellidos" th:field="*{apellidos}"><br>
                 <input type="text" name="cedula" placeholder="Cedula" th:field="*{cedula}"><br>

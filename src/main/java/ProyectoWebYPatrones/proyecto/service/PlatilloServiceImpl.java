@@ -5,9 +5,10 @@ import ProyectoWebYPatrones.proyecto.domain.Platillo;
 import ProyectoWebYPatrones.proyecto.domain.Platillo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+@Service
 public class PlatilloServiceImpl implements PlatilloService {
 
     @Autowired

@@ -1,5 +1,8 @@
 package ProyectoWebYPatrones.proyecto.controller;
 
+import ProyectoWebYPatrones.proyecto.domain.Factura;
+import ProyectoWebYPatrones.proyecto.service.FacturaService;
+import ProyectoWebYPatrones.proyecto.service.PlatilloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class FacturacionController {
     @Autowired
     private FacturaService facturaService;
+    @Autowired
+    private PlatilloService platilloService;
     
     @GetMapping("/factura/nuevo")
-    public String Reservar(Factura factura){
+    public String Reservar(Factura factura, Model model){
+        var platillos = platilloService.getPlatillos();
+        model.addAttribute("platillos", platillos);
         return "/factura/nuevo";
     }
     @PostMapping("/factura/guardar")
@@ -22,15 +29,17 @@ public class FacturacionController {
     }
     @GetMapping("/factura/ver")
     public String verFactura(Model model){
-        var facturaes = facturaService.getFacturaes();
-        model.addAttribute("facturas", facturaes);
-        return "/VerFactura";
+        var facturas = facturaService.getFacturas();
+        model.addAttribute("facturas", facturas);
+        return "/factura/ver";
     }
     @GetMapping("/factura/modificar/{idFactura}")
     public String modificarFactura(Factura factura, Model model){
         var respuesta = facturaService.getFactura(factura);
         model.addAttribute("factura", respuesta);
-        return "Reservar";
+        var platillos = platilloService.getPlatillos();
+        model.addAttribute("platillos", platillos);
+        return "factura/modificar";
     }
     @GetMapping("/factura/eliminar/{idFactura}")
     public String eliminarFactura(Factura factura){

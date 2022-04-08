@@ -13,9 +13,9 @@ public class ReservacionController {
     @Autowired
     private ReservacionService reservacionService;
     
-    @GetMapping("/reservar/nuevo")
+    @GetMapping("/reservacion/modificar")
     public String Reservar(Reservacion reservacion){
-        return "/reservar/modifica";
+        return "/reservacion/modificar";
     }
     @PostMapping("/reservacion/guardar")
     public String guardarReservacion(Reservacion reservacion){

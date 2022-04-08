@@ -4,8 +4,10 @@ import ProyectoWebYPatrones.proyecto.dao.PuestoDao;
 import ProyectoWebYPatrones.proyecto.domain.Puesto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class PuestoServiceImpl implements PuestoService {
 
     @Autowired

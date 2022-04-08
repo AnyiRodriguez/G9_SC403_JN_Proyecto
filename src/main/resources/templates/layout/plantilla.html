@@ -26,7 +26,7 @@
                                     <a th:href="@{/menu/tabla}" style="color:white; font-family: 'Felix-Titling'">TABLA MENU</a>
                                 </li>
                                 <li class="espacio">
-                                    <a th:href="@{/reservacion/nuevo}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">RESERVAR</a>
+                                    <a th:href="@{/reservacion/modificar}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">RESERVAR</a>
                                 </li>
                                 <li class="espacio">
                                     <a th:href="@{/reservacion/ver}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS RESERVACIONES</a>
@@ -35,13 +35,13 @@
                                     <a th:href="@{/reservacion/todo}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">RESERVACIONES</a>
                                 </li>
                                 <li class="espacio">
-                                    <a th:href="@{/ordenar/nuevo}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">ORDENAR ENLINEA</a>
+                                    <a th:href="@{/orden/nuevo}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">ORDENAR ENLINEA</a>
                                 </li>
                                 <li class="espacio">
-                                    <a th:href="@{/ordenes/ver}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS ORDENES</a>
+                                    <a th:href="@{/orden/ver}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS ORDENES</a>
                                 </li>
                                 <li class="espacio">
-                                    <a th:href="@{/ordenes/todo}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">ORDENES</a>
+                                    <a th:href="@{/orden/todo}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">ORDENES</a>
                                 </li>
                                 <li class="espacio">
                                     <a th:href="@{/factura/ver}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">FACTURACION</a>

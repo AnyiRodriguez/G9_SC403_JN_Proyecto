@@ -1,5 +1,8 @@
 package ProyectoWebYPatrones.proyecto.controller;
 
+import ProyectoWebYPatrones.proyecto.domain.Finanza;
+import ProyectoWebYPatrones.proyecto.service.FacturaService;
+import ProyectoWebYPatrones.proyecto.service.FinanzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class FinanzasController {
     @Autowired
     private FinanzaService finanzaService;
+    @Autowired
+    private FacturaService facturaService;
     
-    @GetMapping("/finanza/nuevo")
-    public String Reservar(Finanza finanza){
-        return "/finanza/nuevo";
+    //Corte incompleto
+    @GetMapping("/finanza/corte")
+    public String Reservar(Finanza finanza, Model model){
+        var facturas = facturaService.getFacturas();
+        model.addAttribute("facturas", facturas);
+        return "/finanza/corte";
     }
     @PostMapping("/finanza/guardar")
     public String guardarFinanza(Finanza finanza){
@@ -22,15 +30,9 @@ public class FinanzasController {
     }
     @GetMapping("/finanza/ver")
     public String verFinanza(Model model){
-        var finanzaes = finanzaService.getFinanzaes();
-        model.addAttribute("finanzas", finanzaes);
+        var finanzas = finanzaService.getFinanzas();
+        model.addAttribute("finanzas", finanzas);
         return "/VerFinanza";
-    }
-    @GetMapping("/finanza/modificar/{idFinanza}")
-    public String modificarFinanza(Finanza finanza, Model model){
-        var respuesta = finanzaService.getFinanza(finanza);
-        model.addAttribute("finanza", respuesta);
-        return "Reservar";
     }
     @GetMapping("/finanza/eliminar/{idFinanza}")
     public String eliminarFinanza(Finanza finanza){
