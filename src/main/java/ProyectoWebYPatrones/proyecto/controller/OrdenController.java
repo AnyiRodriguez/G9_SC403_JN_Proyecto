@@ -43,5 +43,10 @@ public class OrdenController {
         model.addAttribute("misOrdenes", busqueda);
         return "/orden/ver";
     }
-    
+    @GetMapping("/orden/todo")
+    public String verTodasReservacion(Model model){
+        var ordenes = ordenService.getOrdenes();
+        model.addAttribute("ordenes", ordenes);
+        return "/orden/todo";
+    }
 }

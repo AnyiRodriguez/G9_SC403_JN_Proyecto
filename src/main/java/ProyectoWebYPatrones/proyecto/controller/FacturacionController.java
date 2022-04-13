@@ -16,35 +16,35 @@ public class FacturacionController {
     @Autowired
     private PlatilloService platilloService;
     
-    @GetMapping("/factura/nuevo")
+    @GetMapping("/facturacion/nuevo")
     public String Reservar(Factura factura, Model model){
         var platillos = platilloService.getPlatillos();
         model.addAttribute("platillos", platillos);
-        return "/factura/nuevo";
+        return "/facturacion/nuevo";
     }
-    @PostMapping("/factura/guardar")
+    @PostMapping("/facturacion/guardar")
     public String guardarFactura(Factura factura){
         facturaService.save(factura);
         return "redirect:/";
     }
-    @GetMapping("/factura/ver")
+    @GetMapping("/facturacion/ver")
     public String verFactura(Model model){
         var facturas = facturaService.getFacturas();
         model.addAttribute("facturas", facturas);
-        return "/factura/ver";
+        return "/facturacion/ver";
     }
-    @GetMapping("/factura/modificar/{idFactura}")
+    @GetMapping("/facturacion/modificar/{idFactura}")
     public String modificarFactura(Factura factura, Model model){
         var respuesta = facturaService.getFactura(factura);
         model.addAttribute("factura", respuesta);
         var platillos = platilloService.getPlatillos();
         model.addAttribute("platillos", platillos);
-        return "factura/modificar";
+        return "facturacion/modificar";
     }
-    @GetMapping("/factura/eliminar/{idFactura}")
+    @GetMapping("/facturacion/eliminar/{idFactura}")
     public String eliminarFactura(Factura factura){
         facturaService.delete(factura);
-        return "redirect:/VerFactura";
+        return "redirect:/facturacion/ver";
     }
     
 }

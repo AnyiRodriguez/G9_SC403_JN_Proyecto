@@ -18,39 +18,39 @@
                                     <img th:src="@{/images/logo2.png}" alt="logo" width="300px"/>
                                 </a>
                             </div>
-                            <ul id="nav navbar-nav" class="texto">
+                            <ul id="nav navbar-nav" class="texto" sec:authorize="hasAnyRole('ROLE_ADMIN')">
                                 <li class="espacio">
                                     <a th:href="@{/menu/ver}" style="color:white; font-family: 'Felix-Titling'">MENU</a>
                                 </li>
                                 <li class="espacio">
                                     <a th:href="@{/menu/tabla}" style="color:white; font-family: 'Felix-Titling'">TABLA MENU</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/reservacion/modificar}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">RESERVAR</a>
+                                <li class="espacio" sec:authorize="hasRole('ROLE_USER')">
+                                    <a th:href="@{/reservacion/modificar}" style="color:white; font-family: 'Felix-Titling'">RESERVAR</a>
                                 </li>
                                 <li class="espacio">
-                                    <a th:href="@{/reservacion/ver}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS RESERVACIONES</a>
+                                    <a th:href="@{/reservacion/busqueda}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS RESERVACIONES</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/reservacion/todo}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">RESERVACIONES</a>
+                                <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')">
+                                    <a th:href="@{/reservacion/todo}"  style="color:white; font-family: 'Felix-Titling'">RESERVACIONES</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/orden/nuevo}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">ORDENAR ENLINEA</a>
+                                <li class="espacio" sec:authorize="hasRole('ROLE_USER')">
+                                    <a th:href="@{/orden/nuevo}" style="color:white; font-family: 'Felix-Titling'">ORDENAR ENLINEA</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/orden/ver}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS ORDENES</a>
+                                <li class="espacio" sec:authorize="hasRole('ROLE_USER')">
+                                    <a th:href="@{/orden/busqueda}" style="color:white; font-family: 'Felix-Titling'">MIS ORDENES</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/orden/todo}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">ORDENES</a>
+                                <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')">
+                                    <a th:href="@{/orden/todo}" style="color:white; font-family: 'Felix-Titling'">ORDENES</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/factura/ver}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">FACTURACION</a>
+                                <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')">
+                                    <a th:href="@{/facturacion/ver}" style="color:white; font-family: 'Felix-Titling'">FACTURACION</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/empleados/ver}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')" style="color:white; font-family: 'Felix-Titling'">EMPLEADOS</a>
+                                <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')">
+                                    <a th:href="@{/empleados/ver}" style="color:white; font-family: 'Felix-Titling'">EMPLEADOS</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/finanzas/ver}" sec:authorize="hasAnyRole('ROLE_ADMIN')" style="color:white; font-family: 'Felix-Titling'">FINANZAS</a>
+                                <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                                    <a th:href="@{/finanzas/ver}" style="color:white; font-family: 'Felix-Titling'">FINANZAS</a>
                                 </li>
                                 <li class="espacio">
                                     <a href="#informacion" style="color:white; font-family: 'Felix-Titling'">INFORMACION</a>

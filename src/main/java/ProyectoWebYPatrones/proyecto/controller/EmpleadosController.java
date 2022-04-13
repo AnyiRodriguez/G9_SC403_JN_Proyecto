@@ -20,23 +20,23 @@ public class EmpleadosController {
     @PostMapping("/empleados/guardar")
     public String guardarEmpleado(Empleado empleado){
         empleadoService.save(empleado);
-        return "redirect:/";
+        return "redirect:/empleados/ver";
     }
     @GetMapping("/empleados/ver")
     public String verEmpleado(Model model){
         var empleadoes = empleadoService.getEmpleados();
         model.addAttribute("empleados", empleadoes);
-        return "/VerEmpleado";
+        return "/empleados/ver";
     }
     @GetMapping("/empleados/modificar/{idEmpleado}")
     public String modificarEmpleado(Empleado empleado, Model model){
         var respuesta = empleadoService.getEmpleado(empleado);
         model.addAttribute("empleado", respuesta);
-        return "Reservar";
+        return "empleados/modificar/{idEmpleado}";
     }
     @GetMapping("/empleados/eliminar/{idEmpleado}")
     public String eliminarEmpleado(Empleado empleado){
         empleadoService.delete(empleado);
-        return "redirect:/VerEmpleado";
+        return "redirect:/empleados/ver";
     }
 }

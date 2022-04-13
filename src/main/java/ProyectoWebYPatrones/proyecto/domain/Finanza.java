@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="Finanza")
+@Table(name="finanza")
 public class Finanza implements Serializable{
     private static final long serialVersionUID = 2L;
     @Id
