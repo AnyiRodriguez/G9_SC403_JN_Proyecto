@@ -39,5 +39,4 @@ public class FinanzasController {
         finanzaService.delete(finanza);
         return "redirect:/VerFinanza";
     }
-    
 }

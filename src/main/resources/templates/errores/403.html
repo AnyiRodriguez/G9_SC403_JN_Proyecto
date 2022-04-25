@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="https://www.w3c.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-    </head>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body>
-        <div>Aviso de error de permisos</div>
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ERROR 403</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><a th:href="@{/}"></a></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Error de permisos</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a th:href="@{/}">Volver</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

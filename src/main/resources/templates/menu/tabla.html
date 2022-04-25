@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
-        <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
+    <body class="Menu">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>Vista para al usuario admin y empleado de los platillos con sus datos</div>
-        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
+        <div class="tablaMenu">
+            <div th:if="${menus != null and !menus.empty}">
+                <table class="table table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Modificar</th>
+                            <th scope="col">Elimiar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${menus}">
+                            <th th:text="${item.tipo}"></th>
+                            <td th:text="${item.platillo.nombre}"></td>
+                            <td th:text="${item.platillo.descripcion}"></td>
+                            <td th:text="${item.platillo.precio}"></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/menu/modificar/} + ${item.idMenu}" style="color:#a00000;">Modificar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/menu/eliminar/} + ${item.idMenu}" style="color:#a00000;">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <footer th:replace="layout/plantilla :: menuMas_informacion"></footer>
     </body>
 </html>

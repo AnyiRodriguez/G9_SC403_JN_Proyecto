@@ -30,7 +30,7 @@ public class ReservacionController {
     public String modificarReservacion(Reservacion reservacion, Model model){
         var respuesta = reservacionService.getReservacion(reservacion);
         model.addAttribute("reservacion", respuesta);
-        return "redirect:/reservacion/ver";
+        return "/reservacion/modificar/{idReservacion}";
     }
     @GetMapping("/reservacion/eliminar/{idReservacion}")
     public String eliminarReservacion(Reservacion reservacion){

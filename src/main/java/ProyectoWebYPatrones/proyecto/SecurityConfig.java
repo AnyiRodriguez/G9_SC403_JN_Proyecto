@@ -14,11 +14,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         auth.inMemoryAuthentication()
                 .withUser("admin")
                     .password("{noop}123")
-                    .roles("ADMIN", "EMPLEADO", "USER")
+                    .roles("ADMIN")
                 .and()
                 .withUser("empleado")
                     .password("{noop}123")
-                        .roles("EMPLEADO", "USER")
+                        .roles("EMPLEADO")
                 .and()
                 .withUser("user")
                         .password("{noop}123")
@@ -27,34 +27,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/empleados/nuevo", "/empleados/ver", "/empleados/guardar",
+                .antMatchers("/empleados/nuevo", "/empleados/guardar",
                         "/empleados/modificar/**", "/empleados/eliminar/**", 
-                        "/factura/nuevo", "/factura/guardar", "/factura/ver", 
-                        "/factura/modificar/**", "/factura/eliminar/**", 
-                        "/menu/nuevo", "/menu/ver", "/menu/tabla", 
+                        "/facturacion/nuevo",  
+                        "/facturacion/eliminar/**","/menu/nuevo", "/menu/ver", 
                         "/menu/modificar/**", "/menu/eliminar/**", "/menu/guardar", 
-                        "/orden/todo", "/orden/eliminar/**", 
-                        "/reservacion/todo", "/reservacion/eliminar/**",
+                        "/orden/eliminar/**", "/reservacion/eliminar/**",
                         "/finanzas/ver", "/finanzas/corte", "/finanxas/guardar",
-                        "/finanzas/eliminar/**",
+                        "/finanzas/eliminar/**", "/menu/tabla",
                         "/platillos/nuevo", "/platillos/guardar", "/platillos/ver", 
                         "/platillos/modificar/**", "/platillos/eliminar/**")
                 .hasRole("ADMIN")
-                .antMatchers("/empleados/ver", 
-                        "/factura/nuevo", "/factura/guardar", "/factura/ver", 
-                        "/factura/modificar/**", "/factura/eliminar/**", 
-                        "/menu/tabla", "/menu/ver", 
-                        "/orden/todo", "/reservacion/todo")
-                .hasRole("EMPLEADO")
                 .antMatchers("/orden/nuevo", "/orden/ver", "/orden/guardar", 
                         "/orden/buscar", "/orden/modificar/**", "/orden/eliminar/**", 
                         "/reservacion/nuevo", "/reservacion/ver", "/reservacion/guardar", 
                         "/reservacion/buscar", "/reservacion/modificar/**", "/reservacion/eliminar/**", 
                          "/menu/ver")
                 .hasRole("USER")
+                .antMatchers("/", "/menu/ver")
+                .hasAnyRole("USER", "ADMIN", "EMPLEADO")
+                .antMatchers("/reservacion/todo", "/orden/todo", "/facturacion/ver",
+                        "/empleados/ver", "/facturacion/modificar/**", "/facturacion/guardar",
+                        "/facturacion/nuevo", "/menu/ver")
+                .hasAnyRole("ADMIN", "EMPLEADO")
                 .and()
                     .formLogin()
-                    .loginPage("/login")
                 .and()
                     .exceptionHandling().accessDeniedPage("/errores/403");
     }

@@ -25,9 +25,6 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Override
     @Transactional
     public void save(Empleado empleado) {
-        Puesto puesto = empleado.getPuesto();
-        puesto = puestoDao.save(puesto);
-        empleado.setPuesto(puesto);
         empleadoDao.save(empleado);
     }
 

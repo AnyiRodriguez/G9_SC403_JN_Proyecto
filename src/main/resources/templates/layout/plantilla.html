@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>TODO supply a title</title>
+    <head th:fragment="head">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
         <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
     <body>
         <header th:fragment="header" id="main-navigation">
@@ -18,18 +24,18 @@
                                     <img th:src="@{/images/logo2.png}" alt="logo" width="300px"/>
                                 </a>
                             </div>
-                            <ul id="nav navbar-nav" class="texto" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                            <ul id="nav navbar-nav" class="texto">
                                 <li class="espacio">
                                     <a th:href="@{/menu/ver}" style="color:white; font-family: 'Felix-Titling'">MENU</a>
                                 </li>
-                                <li class="espacio">
+                                <li class="espacio" sec:Authorize="hasRole('ROLE_ADMIN')">
                                     <a th:href="@{/menu/tabla}" style="color:white; font-family: 'Felix-Titling'">TABLA MENU</a>
                                 </li>
                                 <li class="espacio" sec:authorize="hasRole('ROLE_USER')">
                                     <a th:href="@{/reservacion/modificar}" style="color:white; font-family: 'Felix-Titling'">RESERVAR</a>
                                 </li>
-                                <li class="espacio">
-                                    <a th:href="@{/reservacion/busqueda}" sec:authorize="hasRole('ROLE_USER')" style="color:white; font-family: 'Felix-Titling'">MIS RESERVACIONES</a>
+                                <li class="espacio" sec:authorize="hasRole('ROLE_USER')">
+                                    <a th:href="@{/reservacion/busqueda}" style="color:white; font-family: 'Felix-Titling'">MIS RESERVACIONES</a>
                                 </li>
                                 <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')">
                                     <a th:href="@{/reservacion/todo}"  style="color:white; font-family: 'Felix-Titling'">RESERVACIONES</a>
@@ -49,7 +55,7 @@
                                 <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLEADO')">
                                     <a th:href="@{/empleados/ver}" style="color:white; font-family: 'Felix-Titling'">EMPLEADOS</a>
                                 </li>
-                                <li class="espacio" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                                <li class="espacio" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <a th:href="@{/finanzas/ver}" style="color:white; font-family: 'Felix-Titling'">FINANZAS</a>
                                 </li>
                                 <li class="espacio">
@@ -101,6 +107,63 @@
             </div>
         </div>
         <div th:fragment="menu_informacion" id="menu_foot">
+                <div class="letr">
+                    <div id="foottext">
+                        <br>
+                        <p>Stile Italiano<br>Horario: Lunes - Sabado / 8am - 8pm<br>
+                            Direccion: De la iglesia catolica de Coronado, 200mts sur<br>
+                            Cuenta con parqueo<br>
+                            Rango de precios: 500 - 10000 colones<br>
+                            telefono: 8888-8888</p>
+                        <a name="informacion"></a>
+                    </div>
+                </div>
+            <div id="linea"></div>
+            <div class="icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <div th:fragment="res_informacion" id="res_foot">
+                <div class="letr">
+                    <div id="foottext">
+                        <br>
+                        <p>Stile Italiano<br>Horario: Lunes - Sabado / 8am - 8pm<br>
+                            Direccion: De la iglesia catolica de Coronado, 200mts sur<br>
+                            Cuenta con parqueo<br>
+                            Rango de precios: 500 - 10000 colones<br>
+                            telefono: 8888-8888</p>
+                        <a name="informacion"></a>
+                    </div>
+                </div>
+            <div id="linea"></div>
+            <div class="icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <div th:fragment="menuMas_informacion" class="menuMas_foot">
+                <div class="letr">
+                    <div id="foottext">
+                        <br>
+                        <p>Stile Italiano<br>Horario: Lunes - Sabado / 8am - 8pm<br>
+                            Direccion: De la iglesia catolica de Coronado, 200mts sur<br>
+                            Cuenta con parqueo<br>
+                            Rango de precios: 500 - 10000 colones<br>
+                            telefono: 8888-8888</p>
+                        <a name="informacion"></a>
+                    </div>
+                </div>
+            <div id="linea"></div>
+            <div class="icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <div th:fragment="Emps_informacion" class="Emps_foot">
                 <div class="letr">
                     <div id="foottext">
                         <br>

@@ -13,13 +13,16 @@ public class Menu implements Serializable{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name="id_Menu")
     Long idMenu;
-    Long idPlatillo;
     String tipo;
+    
+    @JoinColumn(name="id_Platillo", referencedColumnName="id_Platillo")
+    @ManyToOne
+    private Platillo platillo;
     
     public Menu(){}
 
-    public Menu(Long idPlatillo, String tipo) {
-        this.idPlatillo = idPlatillo;
+    public Menu(String tipo, Platillo platillo) {
+        this.platillo = platillo;
         this.tipo = tipo;
     }
 }

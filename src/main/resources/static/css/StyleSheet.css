@@ -44,7 +44,7 @@ navbar-brand{
     text-align: center;
 }
 .logo-center > img{
-    display:inline-block;
+    display:flex;
 }
 .navbar-default .navbar-nav > li > a {
   color: #fff;
@@ -58,7 +58,6 @@ navbar-brand{
   text-align:left;
 }
 .texto{
-    padding:0px 5px 0px 300px;
     display:flex;
 }
 .espacio{
@@ -119,11 +118,35 @@ navbar-toggle{
     background-repeat:no-repeat;
     background-size: 100%;
 }
+.Facturar{
+    position: static;
+    height: 100%;
+    width:100%;
+    background-image: url(https://www.tillersystems.com/wp-content/uploads/2017/05/18274984_425002461215719_7190078033689682164_n.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
 #infomodi{
     position: absolute;
     text-align: center;
     top:20%;
     left:30%;
+}
+.Menu{
+    position: static;
+    height: 100%;
+    width:100%;
+    background-image: url(https://cdn.pixabay.com/photo/2020/04/17/12/53/kitchen-5055083_1280.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+.Empleados{
+    position: static;
+    height: 100%;
+    width:100%;
+    background-image: url(https://ig.com.ar/wp-content/uploads/2019/09/Cocina-profesional.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
 }
 .formulario{
     position: absolute;
@@ -226,4 +249,52 @@ body{
     color:white;
     width: auto;
     background-color: rgba(0, 0, 0, 0.73);
+}
+.nuevo{
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    height: 7%;
+    text-align: justify;
+    padding: 20px 20px 20px 20px;
+    background: transparent;
+}
+.nuevo.affix{
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.73);
+}
+.fver{
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    left:30%;
+    height: auto;
+}
+.tablaMenu{
+    position: absolute;
+    width: 70%;
+    top: 15%;
+    left:15%;
+    height: auto;
+}
+#res_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 90%;
+    width:100%;
+}
+.menuMas_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 120%;
+    width:100%;
+}
+.Emps_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 110%;
+    width:100%;
 }

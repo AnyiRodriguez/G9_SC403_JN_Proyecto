@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
-        <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
+    <body class="Facturar">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>Ver facturas</div>
+        <div class="nuevo affix">
+            <a th:href="@{/facturacion/modificar}"> <i class="fa-solid fa-circle-plus">  Crear Factura</i></a>
+        </div>
+        <div class="fver">
+            <div th:if="${facturas != null and !facturas.empty}">
+                <table class="table table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Platillos</th>
+                            <th scope="col">Precios</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Modificar</th>
+                            <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${facturas}">
+                            <td th:text="${item.nombre}"></td>
+                            <td th:text="${item.apellidos}"></td>
+                            <td th:text="${item.platillos}"></td>
+                            <td th:text="${item.precios}"></td>
+                            <td th:text="${item.total}"></td>
+                            <td><a th:href="@{/facturacion/modificar/} + ${item.idFactura}" style="color:#a00000;">Modificar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/facturacion/eliminar/} + ${item.idFactura}" style="color:#a00000;">Eliminar</a></td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
-        <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
+    <body class="Facturar">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>TODO write content</div>
+        <div class="formulario affix">
+            <form th:action="@{/facturacion/guardar}"
+                  method="post"
+                  th:object="${factura}">
+                <input type="hidden" name="idfactura" th:field="*{idFactura}">
+                <label><Strong> Nombre:</Strong></label> <input type="text" name="nombre" th:field="*{nombre}"><br><br>
+                <label><Strong>Apellidos:</Strong></label> <input type="text" name="apellidos" th:field="*{apellidos}"><br><br>
+                <label><Strong>Platillos:</Strong></label> <input type="text" name="platillos" th:field="*{platillos}"><br><br>
+                <label><Strong>Precios:</Strong></label> <input type="text" name="precios" th:field="*{precios}"><br><br>
+                <label><Strong>Total:</Strong></label> <input type="text" name="total" th:field="*{total}"><br><br>
+                <input type="submit" name="Guardar" value="Guardar Factura">
+            </form>
+        </div>
     </body>
 </html>

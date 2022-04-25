@@ -24,15 +24,15 @@ public class EmpleadosController {
     }
     @GetMapping("/empleados/ver")
     public String verEmpleado(Model model){
-        var empleadoes = empleadoService.getEmpleados();
-        model.addAttribute("empleados", empleadoes);
+        var empleados = empleadoService.getEmpleados();
+        model.addAttribute("empleados", empleados);
         return "/empleados/ver";
     }
     @GetMapping("/empleados/modificar/{idEmpleado}")
     public String modificarEmpleado(Empleado empleado, Model model){
         var respuesta = empleadoService.getEmpleado(empleado);
         model.addAttribute("empleado", respuesta);
-        return "empleados/modificar/{idEmpleado}";
+        return "/empleados/modificar";
     }
     @GetMapping("/empleados/eliminar/{idEmpleado}")
     public String eliminarEmpleado(Empleado empleado){

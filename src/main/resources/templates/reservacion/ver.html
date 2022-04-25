@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
-        <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
-    </head>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Reservar">
         <header th:replace="layout/plantilla :: header"></header>
         <div class="ver affix">
@@ -29,16 +22,10 @@
                         <td th:text="${item.cantpersonas}"></td>
                         <td th:text="${item.platillos}"></td>
                         <td th:text="${item.notas}"></td>
-                        <td><a th:href="@{/ModificarReservacion/} + ${item.idreservacion}" style="color:#a00000;">Modificar</a></td>
-                        <td><a th:href="@{/EliminarReservacion/} + ${item.idreservacion}" style="color:#a00000;">Eliminar</a></td>
+                        <td><a th:href="@{/reservacion/modificar/} + ${item.idReservacion}" style="color:#a00000;">Modificar</a></td>
+                        <td><a th:href="@{/reservacion/elimiar/} + ${item.idReservacion}" style="color:#a00000;">Eliminar</a></td>
                 </table>
             </div>
-        </div>
-        <div th:if="${reservaciones == null}">
-            <h1>AAAAAAAAAAAAAAAAAAAAAAAAA</h1>
-        </div>
-        <div th:if="${reservaciones == isEmpty}">
-            <h1>BBBBBBBBBBBBBBBBBBBBBBBBB</h1>
         </div>
         <footer th:replace="layout/plantilla :: informacion"></footer>
     </body>

@@ -13,23 +13,20 @@ public class Empleado implements Serializable{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name="id_Empleado")
     Long idEmpleado;
+    Long idPuesto;
     String nombre;
     String apellidos;
     String cedula;
     String horario;
     
-    @JoinColumn(name="id_Puesto", referencedColumnName="id_Puesto")
-    @ManyToOne
-    private Puesto puesto;
-    
     public Empleado(){}
 
-    public Empleado(String nombre, String apellidos, String cedula, String horario, Puesto puesto) {
+    public Empleado(String nombre, String apellidos, String cedula, String horario, Long idpuesto) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cedula = cedula;
         this.horario = horario;
-        this.puesto = puesto;
+        this.idPuesto = idpuesto;
     }
     
     

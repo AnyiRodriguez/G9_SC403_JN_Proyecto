@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
-        <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
+    <body class="Menu">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>Agregar o modificar platillos y sus datos</div>
-        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
+        <div>
+            <div class="formulario affix">
+            <form th:action="@{/menu/guardar}"
+                  method="post"
+                  th:object="${menu}">
+                <input type="hidden" name="idmenu" th:field="*{idMenu}">
+                <label><Strong> Tipo:</Strong></label> <input type="text" name="tipo" th:field="*{tipo}"><br><br>
+                <label><Strong>Nombre:</Strong></label> <input type="text" name="nombre" th:field="*{platillo.nombre}"><br><br>
+                <label><Strong>Descripcion:</Strong></label> <input type="text" name="descripcion" th:field="*{platillo.descripcion}"><br><br>
+                <label><Strong>Precio:</Strong></label> <input type="text" name="precio" th:field="*{platillo.precio}"><br><br>
+                <input type="submit" name="Guardar" value="Guardar Menu">
+            </form>
+        </div>
+        <footer th:replace="layout/plantilla :: menuMas_informacion"></footer>
     </body>
 </html>

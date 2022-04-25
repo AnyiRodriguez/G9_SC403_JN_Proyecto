@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Proyecto</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <link th:href="@{/css/StyleSheet.css}" rel="stylesheet" type="text/css"/>
-        <script src="https://kit.fontawesome.com/e426fc237f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
+    <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
+    <body class="Empleados">
         <header th:replace="layout/plantilla :: header"></header>
+        <div class="tablaMenu">
+        <div th:if="${empleados != null and !empleados.empty}">
+            <table class="table table-sm table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Horario</th>
+                        <th scope="col">Puesto</th>
+                        <th scope="col">Modificar</th>
+                        <th scope="col">Elimiar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${empleados}">
+                        <th th:text="${item.nombre}"></th>
+                        <td th:text="${item.apellidos}"></td>
+                        <td th:text="${item.cedula}"></td>
+                        <td th:text="${item.horario}"></td>
+                        <td th:text="${item.idPuesto}"></td>
+                        <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/empleados/modificar/} + ${item.idEmpleado}" style="color:#a00000;">Modificar</a></td>
+                        <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/empleados/eliminar/} + ${item.idEmpleado}" style="color:#a00000;">Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div>
+            <p>Puestos:</p>
+            <p>1. Maitre</p>
+            <p>2. Chef</p>
+            <p>3. Bartender</p>
+            <p>4. Cocinerx</p>
+            <p>5. Meserx</p>
+            <p>6. Recepcionista</p>
+            <p>7. Limpieza</p>
+        </div>
+        <footer th:replace="layout/plantilla :: Emps_informacion"></footer>
     </body>
 </html>
