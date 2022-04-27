@@ -4,6 +4,27 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Reservar">
         <header th:replace="layout/plantilla :: header"></header>
+        <div class="ver affix">
+            <div th:if="${reservaciones != null and !reservaciones.empty}">
+                <table class="table table-sm table-dark">
+                    <tr>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Cantidad de Personas</th>
+                        <th scope="col">Platillos</th>
+                        <th scope="col">Notas</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                    <tr th:each="item : ${reservaciones}">
+                        <td th:text="${item.dia}"></td>
+                        <td th:text="${item.hora}"></td>
+                        <td th:text="${item.cantpersonas}"></td>
+                        <td th:text="${item.platillos}"></td>
+                        <td th:text="${item.notas}"></td>
+                        <td><a th:href="@{/reservacion/eliminar/} + ${item.idReservacion}" style="color:#a00000;">Eliminar</a></td>
+                </table>
+            </div>
+        </div>
         <footer th:replace="layout/plantilla :: res_informacion"></footer>
     </body>
 </html>

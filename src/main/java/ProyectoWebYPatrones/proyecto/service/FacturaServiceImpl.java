@@ -36,5 +36,4 @@ public class FacturaServiceImpl implements FacturaService {
     public Factura getFactura(Factura factura) {
         return facturaDao.findById(factura.getIdFactura()).orElse(null);
     }
-    
 }

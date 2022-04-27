@@ -13,17 +13,13 @@ public class Factura implements Serializable{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name="id_Factura")
     Long idFactura;
-    String nombre;
-    String apellidos;
-    String total;
+    public int total;
     String platillos;
     String precios;
     
     public Factura(){}
 
-    public Factura(String nombre, String apellidos, String total, String platillos, String precios) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
+    public Factura(int total, String platillos, String precios) {
         this.total = total;
         this.platillos = platillos;
         this.precios = precios;

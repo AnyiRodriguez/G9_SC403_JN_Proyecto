@@ -11,17 +11,25 @@ public class Finanza implements Serializable{
     private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name="id_Fianza")
+    @Column(name="id_Finanza")
     Long idFinanza;
-    Long idFactura;
     String fecha;
     String hora;
+    int cortetotal;
+    
+    @JoinColumn(name="id_Cliente", referencedColumnName="id_Cliente")
+    @ManyToOne
+    public Cliente cliente;
     
     public Finanza(){}
 
-    public Finanza(Long idFactura, String fecha, String hora) {
-        this.idFactura = idFactura;
+    public Finanza(String fecha, String hora, Cliente cliente, int corteTotal) {
         this.fecha = fecha;
         this.hora = hora;
+        this.cliente = cliente;
+        this.cortetotal = corteTotal;
+    }
+    public void setCorteTotal(int corteTotal){
+        this.cortetotal = corteTotal;
     }
 }

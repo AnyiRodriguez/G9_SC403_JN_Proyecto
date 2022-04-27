@@ -14,8 +14,8 @@ public class EmpleadosController {
     private EmpleadoService empleadoService;
     
     @GetMapping("/empleados/nuevo")
-    public String Reservar(Empleado empleado){
-        return "/empleados/nuevo";
+    public String NuevoEmpleado(Empleado empleado){
+        return "/empleados/modificar";
     }
     @PostMapping("/empleados/guardar")
     public String guardarEmpleado(Empleado empleado){

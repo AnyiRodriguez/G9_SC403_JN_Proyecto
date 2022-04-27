@@ -30,8 +30,8 @@
                         <td th:text="${item.notas}"></td>
                         <td th:text="${item.precio}"></td>
                         <td th:text="${item.ubicacion}"></td>
-                        <td><a th:href="@{/ModificarOrden/} + ${item.idorden}">Modificar</a></td>
-                        <td><a th:href="@{/EliminarOrden/} + ${item.idorden}">Eliminar</a></td>
+                        <td><a th:href="@{/orden/modificar/} + ${item.idOrden}">Modificar</a></td>
+                        <td><a th:href="@{/orden/eliminar/} + ${item.idOrden}">Eliminar</a></td>
                 </table>
             </div>
         </div>

@@ -8,15 +8,17 @@
         <div class="formulario affix">
             <form th:action="@{/facturacion/guardar}"
                   method="post"
-                  th:object="${factura}">
-                <input type="hidden" name="idfactura" th:field="*{idFactura}">
+                  th:object="${cliente}">
+                <input type="hidden" name="idcliente" th:field="*{idCliente}">
                 <label><Strong> Nombre:</Strong></label> <input type="text" name="nombre" th:field="*{nombre}"><br><br>
-                <label><Strong>Apellidos:</Strong></label> <input type="text" name="apellidos" th:field="*{apellidos}"><br><br>
-                <label><Strong>Platillos:</Strong></label> <input type="text" name="platillos" th:field="*{platillos}"><br><br>
-                <label><Strong>Precios:</Strong></label> <input type="text" name="precios" th:field="*{precios}"><br><br>
-                <label><Strong>Total:</Strong></label> <input type="text" name="total" th:field="*{total}"><br><br>
+                <label><Strong> Apellidos:</Strong></label> <input type="text" name="apellidos" th:field="*{apellidos}"><br><br>
+                <label><Strong> Cedula:</Strong></label> <input type="text" name="cedula" th:field="*{cedula}"><br><br>
+                <label><Strong>Platillos:</Strong></label> <input type="text" name="platillos" th:field="*{factura.platillos}"><br><br>
+                <label><Strong>Precios:</Strong></label> <input type="text" name="precios" th:field="*{factura.precios}"><br><br>
+                <label><Strong>Total:</Strong></label> <input type="text" name="total" th:field="*{factura.total}"><br><br>
                 <input type="submit" name="Guardar" value="Guardar Factura">
             </form>
-        </div>
+            </div>
+        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
     </body>
 </html>

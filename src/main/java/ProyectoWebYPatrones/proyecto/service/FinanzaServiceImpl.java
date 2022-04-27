@@ -1,6 +1,8 @@
 package ProyectoWebYPatrones.proyecto.service;
 
+import ProyectoWebYPatrones.proyecto.dao.ClienteDao;
 import ProyectoWebYPatrones.proyecto.dao.FinanzaDao;
+import ProyectoWebYPatrones.proyecto.domain.Cliente;
 import ProyectoWebYPatrones.proyecto.domain.Finanza;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class FinanzaServiceImpl implements FinanzaService {
     @Autowired
     private FinanzaDao finanzaDao;
+    @Autowired
+    private ClienteDao clienteDao;
     
     @Override
     @Transactional (readOnly = true)

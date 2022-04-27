@@ -4,6 +4,38 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Reservar">
         <header th:replace="layout/plantilla :: header"></header>
+        <div class="buscar">
+           
+            <table class="table table-sm table-dark">
+                    <tr>
+                        <th scope="col">Cedula</th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="cedula" placeholder="Ingrese su cedula"></td>
+                        <td><a th:href="@{/reservacion/buscar/} + ${cedula}" style="color:#a00000;"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button></a></td>
+                </table>
+            <!--
+            <form th:action="@{/reservacion/buscar/}"
+                  method="get"
+                  th:object="${reservacion}">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="cedula" placeholder="Ingrese su cedula">
+                    </div>
+                    <div class="col">
+                        <a th:href="@{/reservacion/buscar/} + ${cedula}" style="color:#a00000;"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button></a>
+                    </div>
+                </div>
+            </form>
+            <form th:action="@{/reservacion/buscar/}"
+                  method="get"
+                  th:object="${reservacion}">
+                
+            </form>
+            -->
+            
+        </div>
         <footer th:replace="layout/plantilla :: informacion"></footer>
     </body>
 </html>

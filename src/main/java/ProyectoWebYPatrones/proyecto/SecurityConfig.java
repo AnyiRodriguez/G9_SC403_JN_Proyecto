@@ -29,26 +29,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
                 .antMatchers("/empleados/nuevo", "/empleados/guardar",
                         "/empleados/modificar/**", "/empleados/eliminar/**", 
-                        "/facturacion/nuevo",  
-                        "/facturacion/eliminar/**","/menu/nuevo", "/menu/ver", 
+                        "/facturacion/nuevo", "/facturacion/eliminar/**","/menu/nuevo", 
                         "/menu/modificar/**", "/menu/eliminar/**", "/menu/guardar", 
-                        "/orden/eliminar/**", "/reservacion/eliminar/**",
                         "/finanzas/ver", "/finanzas/corte", "/finanxas/guardar",
                         "/finanzas/eliminar/**", "/menu/tabla",
                         "/platillos/nuevo", "/platillos/guardar", "/platillos/ver", 
                         "/platillos/modificar/**", "/platillos/eliminar/**")
                 .hasRole("ADMIN")
-                .antMatchers("/orden/nuevo", "/orden/ver", "/orden/guardar", 
-                        "/orden/buscar", "/orden/modificar/**", "/orden/eliminar/**", 
+                .antMatchers("/orden/nuevo", "/orden/ver", "/orden/guardar", "/orden/modificar/**", 
                         "/reservacion/nuevo", "/reservacion/ver", "/reservacion/guardar", 
-                        "/reservacion/buscar", "/reservacion/modificar/**", "/reservacion/eliminar/**", 
-                         "/menu/ver")
+                        "/reservacion/modificar/**")
                 .hasRole("USER")
-                .antMatchers("/", "/menu/ver")
+                .antMatchers("/", "/menu/ver", "/reservacion/buscar", "/orden/buscar")
                 .hasAnyRole("USER", "ADMIN", "EMPLEADO")
+                .antMatchers("/reservacion/eliminar/**", "/orden/eliminar/**")
+                .hasAnyRole("USER", "ADMIN")
                 .antMatchers("/reservacion/todo", "/orden/todo", "/facturacion/ver",
                         "/empleados/ver", "/facturacion/modificar/**", "/facturacion/guardar",
-                        "/facturacion/nuevo", "/menu/ver")
+                        "/facturacion/nuevo")
                 .hasAnyRole("ADMIN", "EMPLEADO")
                 .and()
                     .formLogin()

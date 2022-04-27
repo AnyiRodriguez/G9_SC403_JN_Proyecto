@@ -38,8 +38,7 @@ public class ReservacionServiceImpl implements ReservacionService {
 
     @Override
     public List<Reservacion> findByCedula(String cedula) {
-        var lista = (List<Reservacion>) reservacionDao.findByCedula(cedula);
-        return lista;
+        return reservacionDao.findByCedula(cedula);
     }
     
 }

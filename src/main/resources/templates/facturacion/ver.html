@@ -14,6 +14,7 @@
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellidos</th>
+                            <th scope="col">Cedula</th>
                             <th scope="col">Platillos</th>
                             <th scope="col">Precios</th>
                             <th scope="col">Total</th>
@@ -25,14 +26,16 @@
                         <tr th:each="item : ${facturas}">
                             <td th:text="${item.nombre}"></td>
                             <td th:text="${item.apellidos}"></td>
-                            <td th:text="${item.platillos}"></td>
-                            <td th:text="${item.precios}"></td>
-                            <td th:text="${item.total}"></td>
-                            <td><a th:href="@{/facturacion/modificar/} + ${item.idFactura}" style="color:#a00000;">Modificar</a></td>
-                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/facturacion/eliminar/} + ${item.idFactura}" style="color:#a00000;">Eliminar</a></td>
+                            <td th:text="${item.cedula}"></td>
+                            <td th:text="${item.factura.platillos}"></td>
+                            <td th:text="${item.factura.precios}"></td>
+                            <td th:text="${item.factura.total}"></td>
+                            <td><a th:href="@{/facturacion/modificar/} + ${item.idCliente}" style="color:#a00000;">Modificar</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/facturacion/eliminar/} + ${item.idCliente}" style="color:#a00000;">Eliminar</a></td>
                     </tbody>
                 </table>
             </div>
         </div>
+        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
     </body>
 </html>

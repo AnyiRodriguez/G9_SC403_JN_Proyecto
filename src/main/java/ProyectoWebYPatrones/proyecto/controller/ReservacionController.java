@@ -30,12 +30,12 @@ public class ReservacionController {
     public String modificarReservacion(Reservacion reservacion, Model model){
         var respuesta = reservacionService.getReservacion(reservacion);
         model.addAttribute("reservacion", respuesta);
-        return "/reservacion/modificar/{idReservacion}";
+        return "/reservacion/modificar";
     }
     @GetMapping("/reservacion/eliminar/{idReservacion}")
     public String eliminarReservacion(Reservacion reservacion){
         reservacionService.delete(reservacion);
-        return "redirect:/reservacion/ver";
+        return "redirect:/";
     }
     @GetMapping("/reservacion/todo")
     public String verTodasReservacion(Model model){
@@ -43,9 +43,9 @@ public class ReservacionController {
         model.addAttribute("reservaciones", reservaciones);
         return "/reservacion/todo";
     }
-    @GetMapping("/reservacion/buscar/")
+    @GetMapping("/reservacion/buscar/{cedula}")
     public String buscarReservacion(String cedula, Model model){
-        var busqueda = reservacionService.findByCedula(cedula);
+        var busqueda = reservacionService.findByCedula(cedula); //AQUIIIIIIIIII
         model.addAttribute("misReservaciones", busqueda);
         return "/reservacion/ver";
     }

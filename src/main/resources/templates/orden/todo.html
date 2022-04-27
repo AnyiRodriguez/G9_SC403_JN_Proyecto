@@ -4,6 +4,35 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Ordenar">
         <header th:replace="layout/plantilla :: header"></header>
+        <div class="ver affix">
+            <div th:if="${ordenes != null and !ordenes.empty}">
+                <table class="table table-sm table-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Platillos</th>
+                        <th scope="col">Notas</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Ubicacion</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                    <tr th:each="item : ${ordenes}">
+                        <td th:text="${item.nombre}"></td>
+                        <td th:text="${item.apellidos}"></td>
+                        <td th:text="${item.cedula}"></td>
+                        <td th:text="${item.telefono}"></td>
+                        <td th:text="${item.tipo}"></td>
+                        <td th:text="${item.platillos}"></td>
+                        <td th:text="${item.notas}"></td>
+                        <td th:text="${item.precio}"></td>
+                        <td th:text="${item.ubicacion}"></td>
+                        <td><a th:href="@{/orden/eliminar/} + ${item.idOrden}" style="color:#a00000;">Eliminar</a></td>
+                </table>
+            </div>
+        </div>
         <footer th:replace="layout/plantilla :: orden_informacion"></footer>
     </body>
 </html>

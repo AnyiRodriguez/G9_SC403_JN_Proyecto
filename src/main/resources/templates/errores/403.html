@@ -3,19 +3,13 @@
       xmlns:th="https://www.thymeleaf.org">
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body>
-        <div class="modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">ERROR 403</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><a th:href="@{/}"></a></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Error de permisos</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a th:href="@{/}">Volver</a></button>
-                    </div>
+        <div id="error">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2014/04/02/10/26/attention-303861_1280.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Error 403</h5>
+                    <p class="card-text">El acceso a esta pagina esta prohibido</p>
+                    <a th:href="@{/}" class="btn btn-danger">Volver</a>
                 </div>
             </div>
         </div>

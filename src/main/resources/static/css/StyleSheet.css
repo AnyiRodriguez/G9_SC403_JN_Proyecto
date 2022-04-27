@@ -126,6 +126,14 @@ navbar-toggle{
     background-repeat:no-repeat;
     background-size: 100%;
 }
+.Finanza{
+    position: static;
+    height: 100%;
+    width:100%;
+    background-image: url(https://www.inmuebles24.com/noticias/wp-content/uploads/2022/02/cambio-de-titular-del-predial-690x450.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
 #infomodi{
     position: absolute;
     text-align: center;
@@ -235,7 +243,34 @@ body{
     top: 440%;
     width:100%;
 }
-
+#res_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 90%;
+    width:100%;
+}
+.menuMas_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 120%;
+    width:100%;
+}
+.Emps_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 110%;
+    width:100%;
+}
+.Fi_foot{
+    position: absolute;
+    background-color: rgba(100, 22, 21, 1);
+    height: 200px;
+    top: 110%;
+    width:100%;
+}
 .ver{
     position: absolute;
     text-align: center;
@@ -277,24 +312,14 @@ body{
     left:15%;
     height: auto;
 }
-#res_foot{
-    position: absolute;
-    background-color: rgba(100, 22, 21, 1);
-    height: 200px;
-    top: 90%;
-    width:100%;
+
+#error{
+    position:absolute;
+    left: 45%;
+    top: 30%;
 }
-.menuMas_foot{
-    position: absolute;
-    background-color: rgba(100, 22, 21, 1);
-    height: 200px;
-    top: 120%;
-    width:100%;
-}
-.Emps_foot{
-    position: absolute;
-    background-color: rgba(100, 22, 21, 1);
-    height: 200px;
-    top: 110%;
-    width:100%;
+.buscar{
+    position:absolute;
+    left: 45%;
+    top: 30%;
 }

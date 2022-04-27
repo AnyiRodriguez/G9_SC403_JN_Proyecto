@@ -2,8 +2,35 @@
 <html xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://thymeleaf.org/extras/spring-security">
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
-    <body>
+    <body class="Finanza">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>TODO write content</div>
+        <div>
+            Boton para generar corte
+        </div>
+        <div class="tablaMenu">
+            <div th:if="${finanzas != null and !finanzas.empty}">
+                <table class="table table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Corte Total</th>
+                            <th scope="col">Elimiar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${finanzas}">
+                            <th th:text="${item.fecha}"></th>
+                            <td th:text="${item.hora}"></td>
+                            <td th:text="${item.cortetotal}"></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/finanza/eliminar/} + ${item.idFinanza}" style="color:#a00000;">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <a th:href="@{/finanzas/modificar}">Modificar</a>
+        <footer th:replace="layout/plantilla :: fin_informacion"></footer>
     </body>
 </html>

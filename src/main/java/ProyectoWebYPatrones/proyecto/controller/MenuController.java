@@ -33,6 +33,11 @@ public class MenuController {
         model.addAttribute("menu", respuesta);
         return "/menu/modificar";
     }
+    @GetMapping("/menu/eliminar/{idMenu}")
+    public String eliminarMenu(Menu menu){
+        menuService.delete(menu);
+        return "redirect:/";
+    }
     @PostMapping("/menu/guardar")
     public String guardarMenu(Menu menu){
         menuService.save(menu);
