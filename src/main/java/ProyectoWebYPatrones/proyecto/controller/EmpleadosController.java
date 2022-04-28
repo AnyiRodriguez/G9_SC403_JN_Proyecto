@@ -39,4 +39,10 @@ public class EmpleadosController {
         empleadoService.delete(empleado);
         return "redirect:/empleados/ver";
     }
+    @GetMapping("/empleados/buscar/{cedula}")
+    public String buscarEmpleados(String cedula, Model model){
+        var busqueda = empleadoService.findByCedula(cedula);
+        model.addAttribute("EmpleadoEsp", busqueda);
+        return "/empleados/resultado";
+    }
 }

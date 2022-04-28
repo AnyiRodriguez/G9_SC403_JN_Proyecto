@@ -37,7 +37,7 @@ public class OrdenController {
         ordenService.delete(orden);
         return "redirect:/";
     }
-    @GetMapping("/orden/buscar/")
+    @GetMapping("/orden/buscar/{cedula}")
     public String buscarOrden(String cedula, Model model){
         var busqueda = ordenService.findByCedula(cedula);
         model.addAttribute("misOrdenes", busqueda);

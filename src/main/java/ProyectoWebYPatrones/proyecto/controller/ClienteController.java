@@ -46,4 +46,14 @@ public class ClienteController {
         model.addAttribute("facturas", facturacion);
         return "/facturacion/ver";
     }
+    @GetMapping("/facturacion/busqueda")
+    public String BusquedaFactura(){
+        return "/facturacion/busqueda";
+    }
+    @GetMapping("/facturacion/buscar/{cedula}")
+    public String buscarEmpleados(String cedula, Model model){
+        var busqueda = clienteService.findByCedula(cedula);
+        model.addAttribute("FactEsp", busqueda);
+        return "/facturacion/resultado";
+    }
 }

@@ -4,21 +4,12 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Empleados">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>
-            <div class="formulario affix">
-            <form th:action="@{/empleados/guardar}"
-                  method="post"
-                  th:object="${empleado}">
-                <input type="hidden" name="idempleado" th:field="*{idEmpleado}">
-                <label><Strong> Nombre:</Strong></label> <input type="text" name="nombre" th:field="*{nombre}"><br><br>
-                <label><Strong>Apellidos:</Strong></label> <input type="text" name="apellidos" th:field="*{apellidos}"><br><br>
-                <label><Strong>Cedula:</Strong></label> <input type="text" name="cedula" th:field="*{cedula}"><br><br>
-                <label><Strong>Horario:</Strong></label> <input type="text" name="horario" th:field="*{horario}"><br><br>
-                <label><Strong>Puesto:</Strong></label> <input type="text" name="puesto" th:field="*{idPuesto}"><br><br>
-                <input type="submit" name="Guardar" value="Guardar Empleado">
-            </form>
+        <div class="cuadroInfoEMod"></div>
+        <div class="infoEmpMod">
+            <p style="color:white; font-size: 20px; text-align: center;">
+                Puestos: 1. Maitre - 2. Chef 3. - Bartender 4. - Cocinerx - 5. Meserx - 6. Recepcionista - 7. Limpieza</p>
         </div>
-        </div>
+        <div th:replace="layout/plantilla :: empleadosForm"></div>
         <footer th:replace="layout/plantilla :: Emps_informacion"></footer>
     </body>
 </html>

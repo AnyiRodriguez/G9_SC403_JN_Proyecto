@@ -8,4 +8,5 @@ public interface EmpleadoService {
     public void save(Empleado empleado);
     public void delete(Empleado empleado);
     public Empleado getEmpleado(Empleado empleado);
+    public List<Empleado> findByCedula(String cedula);
 }

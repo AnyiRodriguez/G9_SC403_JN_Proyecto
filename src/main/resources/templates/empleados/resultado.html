@@ -6,7 +6,7 @@
         <header th:replace="layout/plantilla :: header"></header>
         <div th:replace="layout/plantilla :: buscarEmpleado"></div>
         <div class="tablaEmple">
-        <div th:if="${empleados != null and !empleados.empty}">
+        <div th:if="${EmpleadoEsp != null and !EmpleadoEsp.empty}">
             <table class="table table-sm table-dark">
                 <thead>
                     <tr>
@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="item : ${empleados}">
+                    <tr th:each="item : ${EmpleadoEsp}">
                         <th th:text="${item.nombre}"></th>
                         <td th:text="${item.apellidos}"></td>
                         <td th:text="${item.cedula}"></td>
@@ -33,11 +33,16 @@
             </table>
         </div>
         </div>
-        <div class="cuadroInfoE"></div>
-        <div class="infoEmp">
-            <p style="color:white; font-size: 20px; text-align: center;">
-                Puestos: 1. Maitre - 2. Chef 3. - Bartender 4. - Cocinerx - 5. Meserx - 6. Recepcionista - 7. Limpieza</p>
+        <div>
+            <p>Puestos:</p>
+            <p>1. Maitre</p>
+            <p>2. Chef</p>
+            <p>3. Bartender</p>
+            <p>4. Cocinerx</p>
+            <p>5. Meserx</p>
+            <p>6. Recepcionista</p>
+            <p>7. Limpieza</p>
         </div>
-        <footer th:replace="layout/plantilla :: Emps_informacion"></footer>
+        <footer th:replace="layout/plantilla :: Emps_informacion"></footer>    
     </body>
 </html>

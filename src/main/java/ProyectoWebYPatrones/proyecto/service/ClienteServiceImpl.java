@@ -50,4 +50,9 @@ public class ClienteServiceImpl implements ClienteService {
             delete(fact);
         }
     }
+
+    @Override
+    public List<Cliente> findByCedula(String cedula) {
+        return clienteDao.findByCedula(cedula);
+    }
 }

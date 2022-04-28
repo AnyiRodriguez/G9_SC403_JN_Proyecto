@@ -87,6 +87,25 @@
                 <i class="fa-brands fa-twitter"></i>
             </div>
         </footer>
+        <div th:fragment="orden_informacionVer" id="orden_foot_ver">
+                <div class="letr">
+                    <div id="foottext">
+                        <br>
+                        <p>Stile Italiano<br>Horario: Lunes - Sabado / 8am - 8pm<br>
+                            Direccion: De la iglesia catolica de Coronado, 200mts sur<br>
+                            Cuenta con parqueo<br>
+                            Rango de precios: 500 - 10000 colones<br>
+                            telefono: 8888-8888</p>
+                        <a name="informacion"></a>
+                    </div>
+                </div>
+            <div id="linea"></div>
+            <div class="icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
         <div th:fragment="orden_informacion" id="orden_foot">
                 <div class="letr">
                     <div id="foottext">
@@ -202,7 +221,380 @@
             </div>
         </div>
         <section th:fragment="recomendaciones">
-            <img src="../images/pizza.jpg" alt="" style="width: 80%;"/>
+            <div id="titulo">
+                <p style="font-family: 'Felix-Titling'; font-size: 70px;">R E C O M E N D A C I O N E S</p>
+            </div>
+            <div id="descr">
+                <section id="descrUno">
+                    <p style="font-family: 'Felix-Titling'; font-size: 28px;">Pizza</p>
+                    <p style="font-family: 'Felix-Titling'; font-size: 20px;">
+                        Pizza son la cuatro estaciones, la cuatro quesos, la vegetariana, la fungí (hongos), la de pepperoni y la hawaiana.</p>
+                </section>
+                <section id="descrDos">
+                    <p style="font-family: 'Felix-Titling'; font-size: 28px;">Grappa</p>
+                    <p style="font-family: 'Felix-Titling'; font-size: 20px;">
+                        Destilación de orujos de uva, es decir las partes sólidas de la vendimia que no tienen aprovechamiento en la previa elaboración del vino</p>
+                </section>
+                <section id="descrTres">
+                    <p style="font-family: 'Felix-Titling'; font-size: 28px;">Carpacio</p>
+                    <p style="font-family: 'Felix-Titling'; font-size: 20px;">
+                        Carne o pescado crudo cortado en láminas finas que se maceran con aceite de oliva y zumo de limón o vinagre y se acompaña con sal y queso parmesano.</p>
+                </section>
+            </div>
+            <div id="imagenes">
+                <img src="../images/pizza.jpg" alt="" style="width: 80%;"/><br>
+                <img src="../images/grappa.jpg" alt="" style="width: 80%;"/><br>
+                <img src="../images/carpacio.jpg" alt="" style="width: 80%;"/><br>
+            </div>
         </section>
+
+        <div th:fragment="buscarEmpleado">
+            <div class="cuadro"></div>
+            <div class="Add">
+                <a th:href="@{/empleados/nuevo}"> <i class="fa-solid fa-circle-plus" style="color:white;">  Agregar</i></a>
+            </div>
+            <div class="barraBusqEF">
+                <form th:action="@{/empleados/buscar/{cedula}}"
+                      method="get"
+                      th:object="${empleado}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="cedula" placeholder="Ingrese la cedula">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-dark" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:fragment="buscarFactura">
+            <div class="cuadro"></div>
+            <div class="Add">
+                <a th:href="@{/facturacion/modificar}"> <i class="fa-solid fa-circle-plus" style="color:white;">  Agregar</i></a>
+            </div>
+            <div class="barraBusqEF">
+                <form th:action="@{/facturacion/buscar/{cedula}}"
+                      method="get"
+                      th:object="${cliente}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="cedula" placeholder="Ingrese la cedula">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-dark" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:fragment="headerFin">
+            <div class="cuadro"></div>
+            <div class="Add">
+                <a th:href="@{/finanzas/modificar}"> <i class="fa-solid fa-circle-plus" style="color:white;">  Generar Corte</i></a>
+            </div>
+        </div>
+        <div th:fragment="addMenu">
+            <div class="cuadro"></div>
+            <div class="Add">
+                <a th:href="@{/menu/modificar}" style="color:white;"><i class="fa-solid fa-circle-plus" style="color:white;">  Agregar</i></a>
+            </div>
+        </div>
+        <div th:fragment="buscarOrden">
+            <div class="cuadro"></div>
+            <div class="Add">
+                <a th:href="@{/menu/ver}" style="color:white;">Ver Menu</a>
+            </div>
+            <div class="barraBusqEF">
+                <form th:action="@{/orden/buscar/{cedula}}"
+                      method="get"
+                      th:object="${orden}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="cedula" placeholder="Ingrese la cedula">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-dark" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:fragment="buscarOrdenTodo">
+            <div class="cuadro"></div>
+            <div class="barraBusqEF">
+                <form th:action="@{/orden/buscar/{cedula}}"
+                      method="get"
+                      th:object="${orden}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="cedula" placeholder="Ingrese la cedula">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-dark" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:fragment="buscarReservacion">
+            <div class="cuadro"></div>
+            <div class="Add">
+                <a th:href="@{/menu/ver}" style="color:white;">Ver Menu</a>
+            </div>
+            <div class="barraBusqEF">
+                <form th:action="@{/reservacion/buscar/{cedula}}"
+                      method="get"
+                      th:object="${reservacion}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="cedula" placeholder="Ingrese la cedula">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-dark" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:fragment="buscarReservacionTodo">
+            <div class="cuadro"></div>
+            <div class="barraBusqEF">
+                <form th:action="@{/reservacion/buscar/{cedula}}"
+                      method="get"
+                      th:object="${reservacion}">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="cedula" placeholder="Ingrese la cedula">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-dark" type="submit">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div th:fragment="corte_fin">
+            <div class="cuadroForm">
+                <div class="ajusteCuad">
+                    <form th:action="@{/finanzas/guardar}"
+                          method="post"
+                          th:object="${finanza}">
+                        <input type="hidden" name="idfinanza" th:field="*{idFinanza}">
+                        <div class="form-group">
+                            <label for="fecha" style="color:white;"><strong>Fecha</strong></label>
+                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="fechaHelp" placeholder="Ingrese la fecha actual" th:field="*{fecha}">
+                            <small id="fechaHelp" class="form-text text-muted" style="color:black;">Ingrese la fecha en que se realizo el corte.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora" style="color:white;"><strong>Hora</strong></label>
+                            <input type="time" class="form-control" id="exampleInputPassword1" aria-describedby="horaHelp" placeholder="Ingrese la hora actual" th:field="*{hora}">
+                            <small id="horaHelp" class="form-text text-muted" style="color:black;">Ingrese la hora en que se realizo el corte.</small>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Generar Corte</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="empleadosForm">
+            <div class="cuadroForm">
+                <div class="ajusteCuad">
+                    <form th:action="@{/empleados/guardar}"
+                          method="post"
+                          th:object="${empleado}">
+                        <input type="hidden" name="idmenu" th:field="*{idEmpleado}">
+                        <div class="form-group">
+                            <label for="nombre" style="color:white;"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="nombreHelp" placeholder="Ingrese el nombre" th:field="*{nombre}">
+                            <small id="nombreHelp" class="form-text text-muted" style="color:black;">Ingrese el nombre del empleado.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos" style="color:white;"><strong>Apellidos</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="apellidosHelp" placeholder="Ingrese los apellidos" th:field="*{apellidos}">
+                            <small id="apellidosHelp" class="form-text text-muted" style="color:black;">Ingrese los apellidos del empleado.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula" style="color:white;"><strong>Cedula</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="cedulaHelp" placeholder="Ingrese la cedula" th:field="*{cedula}">
+                            <small id="cedulaHelp" class="form-text text-muted" style="color:black;">Ingrese la cedula del empleado.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="horario" style="color:white;"><strong>Horario</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="horarioHelp" placeholder="Ingrese el horario" th:field="*{horario}">
+                            <small id="horarioHelp" class="form-text text-muted" style="color:black;">Ingrese el horario del empleado.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="puesto" style="color:white;"><strong>Puesto</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="puestoHelp" placeholder="Ingrese el puesto" th:field="*{idPuesto}">
+                            <small id="puestoHelp" class="form-text text-muted" style="color:black;">Ingrese el id del puesto del empleado.</small>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="menuForm">
+            <div class="cuadroForm">
+                <div class="ajusteCuad">
+                    <form th:action="@{/menu/guardar}"
+                          method="post"
+                          th:object="${menu}">
+                        <input type="hidden" name="idmenu" th:field="*{idMenu}">
+                        <div class="form-group">
+                            <label for="tipo" style="color:white;"><strong>Tipo</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="tipoHelp" placeholder="Ingrese el tipo" th:field="*{tipo}">
+                            <small id="tipoHelp" class="form-text text-muted" style="color:black;">Ingrese el tipo de platillo.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre" style="color:white;"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="nombreHelp" placeholder="Ingrese el nombre" th:field="*{platillo.nombre}">
+                            <small id="nombreHelp" class="form-text text-muted" style="color:black;">Ingrese el nombre del platillo.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion" style="color:white;"><strong>Descripcion</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="descripcionHelp" placeholder="Ingrese una descripcion" th:field="*{platillo.descripcion}">
+                            <small id="descripcionHelp" class="form-text text-muted" style="color:black;">Ingrese una descripcion del platillo.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio" style="color:white;"><strong>Precio</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="precioHelp" placeholder="Ingrese el precio" th:field="*{platillo.precio}">
+                            <small id="precioHelp" class="form-text text-muted" style="color:black;">Ingrese el precio del platillo.</small>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="ordenFormMod">
+            <div class="cuadroFormEm">
+                <div class="ajusteCuadEm">
+                    <form th:action="@{/orden/guardar}"
+                          method="post"
+                          th:object="${orden}">
+                        <input type="hidden" name="idorden" th:field="*{idOrden}"/>
+                        <div class="form-group">
+                            <label for="nombre" style="color:white;"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="nombreHelp" placeholder="Ingrese su nombre" th:field="*{nombre}" readonly="true">
+                            <small id="nombreHelp" class="form-text text-muted" style="color:black;">Ingrese su nombre.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos" style="color:white;"><strong>Apellidos</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="apellidosHelp" placeholder="Ingrese sus apellidos" th:field="*{apellidos}" readonly="true">
+                            <small id="apellidosHelp" class="form-text text-muted" style="color:black;">Ingrese sus apellidos.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula" style="color:white;"><strong>Cedula</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="cedulaHelp" placeholder="Ingrese su cedula" th:field="*{cedula}" readonly="true">
+                            <small id="cedulaHelp" class="form-text text-muted" style="color:black;">Ingrese se cedula.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono" style="color:white;"><strong>Telefono</strong></label>
+                            <input type="tel" class="form-control" id="exampleInputPassword1" aria-describedby="telefonoHelp" placeholder="Ingrese el telefono" th:field="*{telefono}" readonly="true">
+                            <small id="precioHelp" class="form-text text-muted" style="color:black;">Ingrese la cedula del empleado.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2"  style="color:white;"><strong>Seleccione el servicio que requiere</strong></label>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                <option>Express</option>
+                                <option>Recoger en restaurante</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="platillos" style="color:white;"><strong>Platillos</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="platillosHelp" placeholder="Ingrese los platillos" th:field="*{platillos}" readonly="true">
+                            <small id="platillosHelp" class="form-text text-muted" style="color:black;">Ingrese el id de los platillos.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="platillos" style="color:white;"><strong>Platillos</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="platillosHelp" placeholder="Ingrese los platillos" th:field="*{platillos}">
+                            <small id="platillosHelp" class="form-text text-muted" style="color:black;">Ingrese el id de los platillos.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="notas" style="color:white;"><strong>Notas (Opcional)</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="notasHelp" placeholder="Ingrese alguna nota" th:field="*{notas}">
+                            <small id="notasHelp" class="form-text text-muted" style="color:black;">En caso de que sea necesario tomar en cuenta alguna instruccion especial.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion" style="color:white;"><strong>Direccion (Opcional)</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="direccionHelp" placeholder="Ingrese la ubicacion de entrega" th:field="*{ubicacion}">
+                            <small id="direccionHelp" class="form-text text-muted" style="color:black;">En caso de requerir servicio Express.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio" style="color:white;"><strong>Precio</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="precioHelp" placeholder="Ingrese el precio" th:field="*{precio}">
+                            <small id="precioHelp" class="form-text text-muted" style="color:black;">Ingrese el precio total.</small>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="ordenForm">
+            <div class="cuadroFormEm">
+                <div class="ajusteCuadEm">
+                    <form th:action="@{/orden/guardar}"
+                          method="post"
+                          th:object="${orden}">
+                        <input type="hidden" name="idorden" th:field="*{idOrden}"/>
+                        <div class="form-group">
+                            <label for="nombre" style="color:white;"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="nombreHelp" placeholder="Ingrese su nombre" th:field="*{nombre}">
+                            <small id="nombreHelp" class="form-text text-muted" style="color:black;">Ingrese su nombre.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos" style="color:white;"><strong>Apellidos</strong></label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="apellidosHelp" placeholder="Ingrese sus apellidos" th:field="*{apellidos}">
+                            <small id="apellidosHelp" class="form-text text-muted" style="color:black;">Ingrese sus apellidos.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula" style="color:white;"><strong>Cedula</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="cedulaHelp" placeholder="Ingrese su cedula" th:field="*{cedula}">
+                            <small id="cedulaHelp" class="form-text text-muted" style="color:black;">Ingrese se cedula.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono" style="color:white;"><strong>Telefono</strong></label>
+                            <input type="tel" class="form-control" id="exampleInputPassword1" aria-describedby="telefonoHelp" placeholder="Ingrese el telefono" th:field="*{telefono}">
+                            <small id="precioHelp" class="form-text text-muted" style="color:black;">Ingrese la cedula del empleado.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">Seleccione el servicio que requiere</label>
+                            <select multiple class="form-control" id="exampleFormControlSelect2" th:field="*{tipo}">
+                                <option value="express">Express</option>
+                                <option value="enRest">Recoger en restaurante</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="platillos" style="color:white;"><strong>Platillos</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="platillosHelp" placeholder="Ingrese los platillos" th:field="*{platillos}">
+                            <small id="platillosHelp" class="form-text text-muted" style="color:black;">Ingrese el id de los platillos.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="notas" style="color:white;"><strong>Notas (Opcional)</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="notasHelp" placeholder="Ingrese alguna nota" th:field="*{notas}">
+                            <small id="notasHelp" class="form-text text-muted" style="color:black;">En caso de que sea necesario tomar en cuenta alguna instruccion especial.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion" style="color:white;"><strong>Direccion (Opcional)</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="direccionHelp" placeholder="Ingrese la ubicacion de entrega" th:field="*{ubicacion}">
+                            <small id="direccionHelp" class="form-text text-muted" style="color:black;">En caso de requerir servicio Express.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio" style="color:white;"><strong>Precio</strong></label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" aria-describedby="precioHelp" placeholder="Ingrese el precio" th:field="*{precio}">
+                            <small id="precioHelp" class="form-text text-muted" style="color:black;">Ingrese el precio total.</small>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div th:fragment="noResultado">
+            <div class="noSeEncontroCuad"></div>
+            <div class="noSeEncontroInfo">
+            <p>No se encontraron resultados de su busqueda</p>
+            </div>
+        </div>
     </body>
 </html>

@@ -5,8 +5,8 @@
     <body class="Facturar">
         <header th:replace="layout/plantilla :: header"></header>
         <div th:replace="layout/plantilla :: buscarFactura"></div>
-        <div class="tablaGrande">
-            <div th:if="${facturas != null and !facturas.empty}">
+        <div class="fver">
+            <div th:if="${FactEsp != null and !FactEsp.empty}">
                 <table class="table table-sm table-dark">
                     <thead>
                         <tr>
@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="item : ${facturas}">
+                        <tr th:each="item : ${FactEsp}">
                             <td th:text="${item.nombre}"></td>
                             <td th:text="${item.apellidos}"></td>
                             <td th:text="${item.cedula}"></td>

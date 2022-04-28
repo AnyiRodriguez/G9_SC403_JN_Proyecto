@@ -4,10 +4,8 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Finanza">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>
-            Boton para generar corte
-        </div>
-        <div class="tablaMenu">
+        <div th:replace="layout/plantilla :: headerFin"></div>
+        <div class="tablaGrande">
             <div th:if="${finanzas != null and !finanzas.empty}">
                 <table class="table table-sm table-dark">
                     <thead>
@@ -29,8 +27,6 @@
                 </table>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br>
-        <a th:href="@{/finanzas/modificar}">Modificar</a>
         <footer th:replace="layout/plantilla :: fin_informacion"></footer>
     </body>
 </html>

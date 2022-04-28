@@ -5,20 +5,7 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Menu">
         <header th:replace="layout/plantilla :: header"></header>
-        <div>
-            <div class="formulario affix">
-            <form th:action="@{/menu/guardar}"
-                  method="post"
-                  th:object="${menu}">
-                <input type="hidden" name="idmenu" th:field="*{idMenu}">
-                <label><Strong> Tipo:</Strong></label> <input type="text" name="tipo" th:field="*{tipo}"><br><br>
-                <label><Strong>Nombre:</Strong></label> <input type="text" name="nombre" th:field="*{platillo.nombre}"><br><br>
-                <label><Strong>Descripcion:</Strong></label> <input type="text" name="descripcion" th:field="*{platillo.descripcion}"><br><br>
-                <label><Strong>Precio:</Strong></label> <input type="text" name="precio" th:field="*{platillo.precio}"><br><br>
-                <input type="submit" name="Guardar" value="Guardar Menu">
-            </form>
-            </div>
-        </div>
+        <div th:replace="layout/plantilla :: menuForm"></div>
         <footer th:replace="layout/plantilla :: menuMas_informacion"></footer>
     </body>
 </html>

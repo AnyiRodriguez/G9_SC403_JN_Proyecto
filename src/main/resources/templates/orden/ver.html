@@ -4,22 +4,26 @@
     <head th:replace="layout/plantilla :: head"><title>Proyecto</title></head>
     <body class="Ordenar">
         <header th:replace="layout/plantilla :: header"></header>
-        <div class="ver affix">
+        <div th:replace="layout/plantilla :: buscarOrden"></div>
+        <div class="tablaGrande">
             <div th:if="${misOrdenes != null and !misOrdenes.empty}">
-                <table border="1">
+                <table class="table table-sm table-dark">
+                    <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Cedula</th>
-                        <th>Telefono</th>
-                        <th>Tipo</th>
-                        <th>Platillos</th>
-                        <th>Notas</th>
-                        <th>Precio</th>
-                        <th>Ubicacion</th>
-                        <th>Modificar</th>
-                        <th>Eliminar</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Platillos</th>
+                        <th scope="col">Notas</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Ubicacion</th>
+                        <th scope="col">Modificar</th>
+                        <th scope="col">Eliminar</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <tr th:each="item : ${misOrdenes}">
                         <td th:text="${item.nombre}"></td>
                         <td th:text="${item.apellidos}"></td>
@@ -32,9 +36,11 @@
                         <td th:text="${item.ubicacion}"></td>
                         <td><a th:href="@{/orden/modificar/} + ${item.idOrden}">Modificar</a></td>
                         <td><a th:href="@{/orden/eliminar/} + ${item.idOrden}">Eliminar</a></td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
-        <footer th:replace="layout/plantilla :: orden_informacion"></footer>
+        <footer th:replace="layout/plantilla :: orden_informacionVer"></footer>
     </body>
 </html>

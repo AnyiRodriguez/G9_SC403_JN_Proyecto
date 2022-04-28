@@ -39,4 +39,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     public Empleado getEmpleado(Empleado empleado) {
         return empleadoDao.findById(empleado.getIdEmpleado()).orElse(null);
     }
+
+    @Override
+    public List<Empleado> findByCedula(String cedula) {
+        return empleadoDao.findByCedula(cedula);
+    }
 }
